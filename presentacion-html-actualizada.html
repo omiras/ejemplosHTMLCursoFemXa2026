@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introducción a HTML · IFCD0210</title>
+</head>
+<body style="margin:0;background:#f4f1ea;color:#192d36;font-family:Segoe UI,Arial,sans-serif;line-height:1.55;">
+<header style="padding:18px 5%;border-bottom:1px solid #d5d8d2;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;">
+<strong style="letter-spacing:2px;font-size:15px;">IFCD0210 / HTML</strong>
+<label style="font-size:15px;">Ir a <select id="indice" style="font:inherit;padding:8px;border:1px solid #a7b7b8;border-radius:6px;max-width:75vw;background:white;"></select></label>
+</header>
+<main id="contenido" style="max-width:1160px;margin:auto;padding:38px 5% 24px;min-height:65vh;"></main>
+<footer style="padding:18px 5%;border-top:1px solid #d5d8d2;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;">
+<span id="contador" aria-live="polite" style="font-size:16px;"></span>
+<div style="display:flex;gap:10px;flex-wrap:wrap;">
+<button id="anterior" type="button" style="font:inherit;padding:10px 20px;border:1px solid #718c90;border-radius:6px;background:white;color:#192d36;cursor:pointer;">Anterior</button>
+<button id="siguiente" type="button" style="font:inherit;padding:10px 20px;border:1px solid #126d67;border-radius:6px;background:#126d67;color:white;cursor:pointer;">Siguiente</button>
+<button id="pantalla" type="button" style="font:inherit;padding:10px 16px;border:1px solid #718c90;border-radius:6px;background:white;color:#192d36;cursor:pointer;">Pantalla completa</button>
+</div>
+<small style="width:100%;color:#536970;">Puedes usar las flechas izquierda y derecha. Inicio y Fin llevan a la primera y última diapositiva.</small>
+</footer>
+<noscript><p style="padding:30px;">Activa JavaScript en el navegador para ver la presentación. Todo el contenido y la navegación están incluidos en este archivo.</p></noscript>
+<script>
+'use strict';
+// Archivo autónomo: estilos en atributos style, sin fuentes ni recursos externos.
+const slides = [
+  {
+    "b": "INTRODUCCIÓN",
+    "t": "Nuestra primera página web",
+    "p": "HTML nos permite organizar el contenido de una página y explicar qué significa cada parte.",
+    "code": "<h1>Mi cuaderno de viajes</h1>\n<p>Un lugar para compartir descubrimientos.</p>",
+    "e": "Recorrido: presentación, receta, biografía, listas, poema, Pokémon, protectora y revisión."
+  },
+  {
+    "b": "ANTES DE ESCRIBIR",
+    "t": "HTML, CSS y JavaScript",
+    "p": "Cada tecnología tiene una función. Empezamos por la estructura del contenido.",
+    "html": "<dl style=\"font-size:clamp(20px,2.3vw,29px);\"><dt style=\"font-weight:700;color:#126d67;\">HTML · contenido y significado</dt><dd style=\"margin:4px 0 22px;\">Un encabezado identifica el título de un apartado.</dd><dt style=\"font-weight:700;color:#126d67;\">CSS · presentación</dt><dd style=\"margin:4px 0 22px;\">Podemos cambiar colores, tamaños y distribución.</dd><dt style=\"font-weight:700;color:#126d67;\">JavaScript · comportamiento</dt><dd style=\"margin:4px 0;\">Podemos reaccionar a una acción del usuario.</dd></dl>",
+    "e": "En estos ejercicios construimos el contenido con HTML. No necesitas reproducir exactamente los márgenes de las capturas."
+  },
+  {
+    "b": "PREPARACIÓN",
+    "t": "Del archivo al navegador",
+    "p": "VS Code es el editor donde escribimos. El navegador interpreta el HTML y muestra el resultado.",
+    "html": "<ol style=\"font-size:clamp(20px,2.2vw,27px);padding-left:30px;\"><li>Extrae el ZIP y abre la carpeta completa en VS Code.</li><li>Abre el HTML del ejercicio.</li><li>Si hace falta, instala Live Server de Ritwick Dey.</li><li>Haz clic derecho en el archivo y elige Open with Live Server.</li><li>Cambia una frase, guarda con Ctrl + S y comprueba la página.</li></ol>",
+    "e": "Ejercicio 0 · Mi presentación. Live Server muestra la web en tu equipo. No la publica en Internet."
+  },
+  {
+    "b": "EJERCICIO 0 · MI PRESENTACIÓN",
+    "t": "Etiquetas y elementos",
+    "p": "La etiqueta de apertura inicia el elemento. La etiqueta de cierre termina el elemento. Entre ambas escribimos el contenido.",
+    "code": "<p>Hoy empiezo a aprender HTML.</p>",
+    "extra": "<p style=\"font-size:22px;\"><code>&lt;p&gt;</code> apertura · texto: contenido · <code>&lt;/p&gt;</code> cierre</p>",
+    "q": "¿Qué diferencia hay entre <p> y </p>?",
+    "a": "La barra / identifica la etiqueta de cierre. Todo el conjunto, incluido el contenido, es un elemento.",
+    "e": "Escribe dentro de body. La plantilla del primer ejercicio ya está preparada."
+  },
+  {
+    "b": "EJERCICIO 0 · MI PRESENTACIÓN",
+    "t": "Encabezados con jerarquía",
+    "p": "El nivel del encabezado depende de la organización del contenido.",
+    "code": "<h1>Mi cuaderno de viajes</h1>\n<h2>Viajes por España</h2>\n<h3>Una visita a Granada</h3>\n<h2>Próximos destinos</h2>",
+    "q": "Después de Granada empieza otro apartado principal. ¿Qué nivel necesita? ¿h1, h2 o h3?",
+    "a": "h2. Es otro apartado al mismo nivel que Viajes por España. No elegimos el nivel por el tamaño de letra.",
+    "e": "Un h1 para el título de esta página, h2 para sus apartados y h3 para un subapartado. Existen niveles hasta h6."
+  },
+  {
+    "b": "EJERCICIO 0 · MI PRESENTACIÓN",
+    "t": "Un párrafo para cada idea",
+    "p": "Pulsar Intro en el editor no crea otro párrafo en la página.",
+    "code": "<h2>Mis destinos favoritos</h2>\n<p>Me gusta pasear por ciudades pequeñas.</p>\n<p>También disfruto de los paisajes de montaña.</p>",
+    "q": "¿Podemos colocar un párrafo dentro de un h2?",
+    "a": "No. El encabezado y el párrafo son elementos separados. El encabezado identifica el apartado y el párrafo desarrolla su contenido.",
+    "e": "Ahora puedes hacer Mi presentación: un h1, dos h2, un h3 y cuatro párrafos. Sin añadir atributos, listas ni imágenes."
+  },
+  {
+    "b": "EJERCICIO 0B · RECETA",
+    "t": "Listas con viñetas",
+    "p": "Una lista desordenada agrupa elementos cuando su posición no indica una secuencia.",
+    "code": "<h2>Material para una excursión</h2>\n<ul>\n    <li>Agua</li>\n    <li>Calzado cómodo</li>\n    <li>Una gorra</li>\n</ul>",
+    "q": "¿Qué etiqueta representa cada elemento de la lista?",
+    "a": "li. La etiqueta ul contiene los elementos y el navegador dibuja las viñetas.",
+    "e": "En la receta, los ingredientes se organizan con ul. El título del apartado queda fuera de la lista."
+  },
+  {
+    "b": "EJERCICIO 0B · RECETA",
+    "t": "Listas con una secuencia",
+    "p": "Una lista ordenada expresa pasos o elementos cuyo orden tiene significado.",
+    "code": "<ol>\n    <li>Abre el archivo.</li>\n    <li>Modifica una frase.</li>\n    <li>Guarda los cambios.</li>\n</ol>",
+    "q": "Si añadimos un paso en medio, ¿tenemos que cambiar los números?",
+    "a": "No. El navegador genera la numeración. Nosotros añadimos otro li en la posición adecuada.",
+    "e": "En la receta, los pasos de preparación se organizan con ol. Tanto ul como ol contienen elementos li."
+  },
+  {
+    "b": "RECETA Y TIM BERNERS-LEE",
+    "t": "Importancia y énfasis",
+    "p": "Podemos dar significado a un fragmento dentro de un párrafo o de un elemento de lista.",
+    "code": "<p><strong>Guarda los cambios</strong> antes de cerrar.</p>\n<p>Revisa el resultado <em>después de cada paso</em>.</p>",
+    "q": "¿Qué diferencia hay entre strong y em?",
+    "a": "strong expresa importancia y em añade énfasis. Habitualmente se muestran en negrita y cursiva, respectivamente.",
+    "e": "Ahora puedes practicar con la receta y consolidar lo aprendido con la biografía de Tim Berners-Lee."
+  },
+  {
+    "b": "ANTES DE LAS LISTAS ANIDADAS",
+    "t": "Elementos dentro de elementos",
+    "p": "Cuando abrimos un elemento dentro de otro, cerramos primero el interior.",
+    "code": "<p>Una instrucción <strong>importante</strong>.</p>\n\n<ul>\n    <li>Un elemento de la lista</li>\n</ul>",
+    "q": "¿Por qué colocamos espacios al principio de algunas líneas?",
+    "a": "La indentación ayuda a leer qué está dentro de qué. La estructura la determinan las etiquetas, no esos espacios.",
+    "e": "Antes de avanzar, comprueba apertura, cierre y posición de cada elemento."
+  },
+  {
+    "b": "EJERCICIO 2 · MI FIN DE SEMANA",
+    "t": "Una lista dentro de otra",
+    "p": "La lista interior pertenece a un elemento concreto de la lista exterior.",
+    "code": "<ul>\n    <li>Maleta</li>\n    <li>Mochila\n        <ul>\n            <li>Agua</li>\n            <li>Cuaderno</li>\n        </ul>\n    </li>\n</ul>",
+    "q": "¿En qué línea se cierra el li de Mochila: 6, 7 u 8?",
+    "a": "En la línea 8. La línea 6 cierra el li de Cuaderno y la 7 cierra la lista interior. El li de Mochila se cierra después de esa lista.",
+    "e": "Aplica esta idea al apartado Material para la playa del ejercicio Mi fin de semana.",
+    "lineNumbers": true
+  },
+  {
+    "b": "EJERCICIO 3 · JOSEP PLA",
+    "t": "La estructura del documento",
+    "p": "Al crear una página desde cero necesitamos el documento completo.",
+    "code": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n    <meta charset=\"UTF-8\">\n    <title>Mi cuaderno</title>\n</head>\n<body>\n    <h1>Mi cuaderno de viajes</h1>\n    <p>Bienvenidos.</p>\n</body>\n</html>",
+    "preview": true,
+    "q": "¿Dónde aparece title? ¿Dónde aparece h1?",
+    "a": "title define el nombre de la pestaña del navegador. El h1 es el encabezado principal visible dentro de la página.",
+    "e": "DOCTYPE activa el modo estándar. html contiene el documento, head sus metadatos y body su contenido.",
+    "browser": true,
+    "browserTitle": "Mi cuaderno",
+    "fullDocument": true
+  },
+  {
+    "b": "EJERCICIO 3 · JOSEP PLA",
+    "t": "Atributos: información adicional",
+    "p": "Los atributos se escriben en la etiqueta de apertura. Cada uno tiene un nombre y, normalmente, un valor.",
+    "code": "<html lang=\"es\">\n\n<meta charset=\"UTF-8\">",
+    "preview": false,
+    "q": "¿Para qué sirven lang y charset?",
+    "a": "lang indica el idioma principal del documento. charset indica la codificación del texto. Guarda también el archivo como UTF-8.",
+    "e": "La restricción de no añadir atributos correspondía al ejercicio de presentación. A partir de aquí iremos usándolos."
+  },
+  {
+    "b": "EJERCICIO 3 · JOSEP PLA",
+    "t": "Texto preformateado y obras",
+    "p": "pre conserva los espacios y los saltos de línea. cite identifica el título de una obra.",
+    "code": "<pre>La tarde termina.\n    El camino descansa.\nVuelvo a casa.</pre>\n<p>Texto de ejemplo inspirado en <cite>Mi cuaderno</cite>.</p>",
+    "q": "¿Qué ocurre si añadimos espacios dentro de pre?",
+    "a": "Esos espacios se conservan en el resultado. Por eso también debes revisar la sangría del propio texto.",
+    "e": "En Josep Pla, reproduce el poema de la referencia y utiliza cite para el título de la obra. El ejemplo de esta diapositiva es inventado."
+  },
+  {
+    "b": "EJERCICIO 4 · POKÉMON",
+    "t": "Imágenes: origen y alternativa",
+    "p": "img incorpora una imagen. src indica su ruta y alt proporciona una alternativa textual.",
+    "code": "<img src=\"img/charmander.png\" alt=\"Charmander\">",
+    "preview": false,
+    "extra": "<p style=\"font-size:22px;\">Si index.html está junto a la carpeta img, la ruta empieza por <code>img/</code>. La etiqueta <code>img</code> no lleva cierre.</p>",
+    "q": "La imagen no aparece. ¿Qué revisamos?",
+    "a": "La ruta desde el HTML, el nombre exacto del archivo y su extensión. En este ejercicio los archivos se llaman charmander.png, charmillion.png y charizar.png.",
+    "e": "El texto alternativo depende del contenido y la función de la imagen. Evita rutas personales como C:\\Users\\…"
+  },
+  {
+    "b": "POKÉMON Y PROTECTORA",
+    "t": "Enlaces y destinos",
+    "p": "El atributo href indica a dónde lleva el enlace. El contenido de a es lo que podemos pulsar.",
+    "code": "<a href=\"https://example.com\">Visitar una web</a>\n\n<p><a href=\"otra-pagina.html\"></a>Otra página del sitio</p>",
+    "preview": true,
+    "q": "¿Cuál es el problema con el segundo enlace?",
+    "a": "El texto «Otra página del sitio» está fuera de <a> y </a>. El enlace está vacío y ese texto no se puede pulsar. Coloca el texto entre la apertura y el cierre, como en el primer enlace.",
+    "e": "Comprueba siempre los enlaces en tu propio ejercicio. Un texto azul no garantiza que el destino sea correcto.",
+    "browser": true,
+    "browserTitle": "Mis enlaces"
+  },
+  {
+    "b": "EJERCICIO 5 · PROTECTORA",
+    "t": "Rutas entre carpetas",
+    "p": "Una ruta relativa parte de la ubicación del archivo HTML que la contiene.",
+    "code": "<!-- Desde el index.html principal -->\n<a href=\"ciudades-gatos-perdidos/gatosPerdidosGirona.html\">\n    Gatos perdidos en Girona\n</a>\n\n<!-- Desde la página de Girona -->\n<a href=\"../index.html\">Volver al inicio</a>\n<img src=\"../img/bertin.jpg\" alt=\"Bertín, gato perdido\">",
+    "preview": false,
+    "q": "¿Qué significa ../?",
+    "a": "Subir una carpeta. Desde la página de una localidad necesitamos subir para encontrar el index.html principal y la carpeta img.",
+    "e": "Prueba la ida, la vuelta y las imágenes de cada localidad. No basta con revisar la portada."
+  },
+  {
+    "b": "EJERCICIO 5 · PROTECTORA",
+    "t": "Contacto y vídeo",
+    "p": "Algunos enlaces solicitan abrir una aplicación. Un iframe puede incrustar contenido de otra página.",
+    "code": "<a href=\"mailto:info@example.com\">Escribir por correo</a>\n\n<iframe\n    src=\"https://www.youtube.com/embed/zmXtcnZcq4g\"\n    title=\"Vídeo de la protectora\"\n    width=\"560\" height=\"315\"\n    allowfullscreen>\n</iframe>",
+    "preview": false,
+    "q": "¿Necesita conexión a Internet el vídeo incrustado?",
+    "a": "Sí. La página puede estar guardada en tu equipo, pero el reproductor necesita cargar contenido de YouTube. mailto depende de la aplicación de correo configurada.",
+    "e": "Incorpora el vídeo cuando las páginas, imágenes y enlaces ya funcionen. Este ejemplo se muestra como código para que la presentación funcione sin Internet."
+  },
+  {
+    "b": "EJERCICIO 6 · DETECTIVES DE HTML",
+    "t": "El navegador intenta ayudar",
+    "p": "Una página puede mostrar contenido aunque el código tenga errores. Revisamos también las etiquetas y sus relaciones.",
+    "code": "<!-- Este comentario explica una decisión. -->\n<p>Un texto con <strong>una idea importante</strong>.</p>",
+    "q": "¿Basta con que la página se vea para saber que todo está bien?",
+    "a": "No. El navegador intenta recuperarse de algunos errores. Debemos revisar la estructura, los atributos y el orden de cierre.",
+    "e": "Localiza los cinco errores intencionados y añade comentarios que expliquen el problema. Conserva el código problemático para revisarlo en clase."
+  },
+  {
+    "b": "CIERRE",
+    "t": "Lo que ya puedes construir",
+    "p": "Una página con contenido organizado y un pequeño sitio conectado mediante enlaces.",
+    "html": "<ul style=\"font-size:clamp(20px,2.2vw,28px);padding-left:30px;\"><li>Encabezados que expresan la jerarquía.</li><li>Párrafos, listas y fragmentos con importancia o énfasis.</li><li>Un documento completo con título e idioma.</li><li>Imágenes con rutas y alternativas textuales.</li><li>Enlaces entre páginas y apartados.</li><li>Comentarios que explican errores y decisiones.</li></ul>",
+    "e": "Avanza con cambios pequeños. Si pides ayuda, explica qué querías hacer, qué has probado y qué ha ocurrido."
+  }
+];
+
+const main=document.getElementById('contenido'), select=document.getElementById('indice');
+const escapeHTML=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+function renderCode(s){
+ if(!s.lineNumbers)return escapeHTML(s.code);
+ return s.code.split('\n').map((line,i)=>'<span style="display:block;"><span aria-hidden="true" style="display:inline-block;width:2ch;margin-right:18px;color:#a8c3c0;text-align:right;user-select:none;">'+(i+1)+'</span>'+escapeHTML(line)+'</span>').join('');
+}
+function browserChrome(s){
+ return '<div style="border:1px solid #bdcac6;border-bottom:0;border-radius:8px 8px 0 0;background:#e7ecef;padding:8px 10px;color:#33434c;font:14px Segoe UI,Arial,sans-serif;"><div style="display:flex;align-items:center;gap:14px;"><span aria-hidden="true">● ● ●</span><span style="background:white;border-radius:7px 7px 0 0;padding:7px 18px;">'+escapeHTML(s.browserTitle)+' <span aria-hidden="true" style="margin-left:24px;">×</span></span></div><div style="margin-top:7px;border-radius:20px;background:white;padding:5px 14px;font-size:12px;">archivo local / index.html</div></div>';
+}
+slides.forEach((s,i)=>{const o=document.createElement('option');o.value=i;o.textContent=(i+1)+'. '+s.t;select.append(o);});
+let current=0;
+function show(i){
+ current=Math.max(0,Math.min(slides.length-1,i));const s=slides[current];
+ main.innerHTML='<p style="margin:0 0 12px;color:#126d67;font-size:15px;font-weight:700;letter-spacing:2px;">'+s.b+'</p>'+
+ '<h1 style="font-size:clamp(32px,4.8vw,58px);line-height:1.12;letter-spacing:-1.5px;margin:0 0 22px;max-width:1000px;">'+s.t+'</h1>'+
+ '<p style="font-size:clamp(20px,2.3vw,28px);max-width:1030px;margin:0 0 24px;">'+s.p+'</p>'+(s.html||'')+
+ (s.code?'<div style="display:flex;gap:24px;flex-wrap:wrap;align-items:stretch;"><div style="flex:1 1 420px;min-width:0;"><p style="margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:1px;">CÓDIGO HTML</p><pre style="margin:0;background:#192d36;color:#e9f6f1;padding:22px;border-radius:8px;overflow:auto;font-size:clamp(16px,1.65vw,21px);line-height:1.55;tab-size:4;"><code>'+renderCode(s)+'</code></pre></div>'+(s.preview!==false?'<div style="flex:1 1 320px;min-width:0;"><p style="margin:0 0 6px;font-size:14px;font-weight:700;letter-spacing:1px;">RESULTADO EN EL NAVEGADOR</p>'+(s.browser?browserChrome(s):'')+'<iframe id="vista" title="Resultado del ejemplo HTML" sandbox="" style="width:100%;height:260px;border:1px solid #bdcac6;border-radius:8px;background:white;box-sizing:border-box;"></iframe></div>':'')+'</div>':'')+
+ (s.extra||'')+(s.q?'<details style="margin:26px 0 18px;border-top:2px solid #c6d3cb;padding-top:14px;font-size:clamp(18px,1.9vw,23px);"><summary style="cursor:pointer;font-weight:650;">'+escapeHTML(s.q)+'</summary><p style="margin:12px 0;color:#38595d;">'+escapeHTML(s.a)+'</p></details>':'')+
+ '<p style="font-size:17px;color:#536970;margin:16px 0 0;">'+escapeHTML(s.e)+'</p>';
+ const frame=document.getElementById('vista');
+ if(frame){
+ frame.style.height=s.fullDocument?'310px':'260px';
+ if(s.browser)frame.style.borderRadius='0 0 8px 8px';
+ frame.srcdoc=s.fullDocument?s.code:'<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"></head><body style="padding:8px 16px;font-size:18px;">'+s.code+'</body></html>';
+ }
+
+ select.value=current;document.getElementById('contador').textContent='Diapositiva '+(current+1)+' de '+slides.length;
+ document.getElementById('anterior').disabled=current===0;document.getElementById('siguiente').disabled=current===slides.length-1;
+ document.getElementById('anterior').style.opacity=current===0?'.45':'1';document.getElementById('siguiente').style.opacity=current===slides.length-1?'.45':'1';
+ location.hash='diapositiva-'+(current+1);window.scrollTo(0,0);
+}
+document.getElementById('anterior').onclick=()=>show(current-1);
+document.getElementById('siguiente').onclick=()=>show(current+1);
+select.onchange=()=>show(Number(select.value));
+document.addEventListener('keydown',e=>{if(/SELECT|INPUT|TEXTAREA|BUTTON|SUMMARY/.test(e.target.tagName)||e.altKey||e.ctrlKey||e.metaKey)return;if(e.key==='ArrowRight'){e.preventDefault();show(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();show(current-1);}if(e.key==='Home'){e.preventDefault();show(0);}if(e.key==='End'){e.preventDefault();show(slides.length-1);}});
+document.getElementById('pantalla').onclick=async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else if(document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen();else alert('Puedes usar F11 para ampliar el navegador.');}catch{alert('Puedes usar F11 para ampliar el navegador.');}};
+document.addEventListener('fullscreenchange',()=>{document.getElementById('pantalla').textContent=document.fullscreenElement?'Salir de pantalla completa':'Pantalla completa';});
+window.addEventListener('hashchange',()=>{const n=Number(location.hash.replace('#diapositiva-',''));if(Number.isInteger(n)&&n>=1&&n<=slides.length&&n-1!==current)show(n-1);});
+const initial=Number(location.hash.replace('#diapositiva-',''));show(Number.isInteger(initial)&&initial>=1&&initial<=slides.length?initial-1:0);
+</script>
+</body>
+</html>
