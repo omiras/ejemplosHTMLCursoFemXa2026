@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS: clases, herencia e inspector · IFCD0210</title>
+</head>
+<body style="margin:0;background:#f4f1ea;color:#192d36;font-family:Segoe UI,Arial,sans-serif;line-height:1.5;">
+<header style="padding:16px 5%;border-bottom:1px solid #cbd5cd;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center;">
+<strong>IFCD0210 / CSS · 29 octubre 2026</strong>
+<label>Ir a <select id="indice" style="font:inherit;max-width:80vw;padding:8px;"><option value="0">1. CSS: dar estilo al contenido</option><option value="1">2. Leer una regla CSS</option><option value="2">3. De estilos en línea a reglas compartidas</option><option value="3">4. Dónde escribir CSS</option><option value="4">5. Un selector de etiqueta alcanza a todos</option><option value="5">6. Clases: agrupar por una característica</option><option value="6">7. Una regla, varios movimientos</option><option value="7">8. Probar una clase</option><option value="8">9. Estilos generales y casos concretos</option><option value="9">10. Currículum: texto y fondos</option><option value="10">11. Greguerías: párrafos de distintos grupos</option><option value="11">12. Tipografía: propiedades frecuentes</option><option value="12">13. Películas: una clase en parte de una línea</option><option value="13">14. La jerarquía HTML explica la herencia</option><option value="14">15. No todas las propiedades se heredan</option><option value="15">16. Un estilo directo sustituye al heredado</option><option value="16">17. Especificidad: etiqueta y clase</option><option value="17">18. Si empatan, decide el orden</option><option value="18">19. Selectores que encontrarás</option><option value="19">20. El inspector: comprobar, no adivinar</option><option value="20">21. Probar estilos desde el navegador</option><option value="21">22. Espacios: dentro y fuera de la caja</option><option value="22">23. Resolver PIMEC paso a paso</option><option value="23">24. Recursos y práctica final</option></select></label>
+</header>
+<main style="max-width:1200px;margin:auto;padding:22px 5%;min-height:70vh;"><section id="diapo-1" aria-labelledby="titulo-1" style="padding:12px 0 26px;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 01</p>
+<h1 id="titulo-1" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">CSS: dar estilo al contenido</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">HTML organiza el contenido; CSS decide cómo se presenta. Hoy queremos comprender qué regla se aplica y por qué.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +1.200 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 1" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +1.200 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Mismo HTML, distintas decisiones de presentación.</p>
+</section>
+<section id="diapo-2" aria-labelledby="titulo-2" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 02</p>
+<h1 id="titulo-2" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Leer una regla CSS</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Selector → a quién. Propiedad → qué cambiamos. Valor → cómo lo cambiamos.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>p {
+    color: green;
+    font-size: 24px;
+}</code></pre></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Cada declaración termina con punto y coma. Las llaves agrupan las declaraciones.</p>
+</section>
+<section id="diapo-3" aria-labelledby="titulo-3" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 03</p>
+<h1 id="titulo-3" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">De estilos en línea a reglas compartidas</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Un atributo style cambia ese elemento. Una regla permite compartir decisiones.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p style=&quot;color: green;&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+&lt;p style=&quot;color: green;&quot;&gt;Ingreso: +200 €&lt;/p&gt;</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 3" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p style=&quot;color: green;&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+&lt;p style=&quot;color: green;&quot;&gt;Ingreso: +200 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Si repetimos la misma decisión en muchos elementos, una clase nos permite mantenerla en un solo lugar.</p>
+</section>
+<section id="diapo-4" aria-labelledby="titulo-4" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 04</p>
+<h1 id="titulo-4" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Dónde escribir CSS</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Para ejemplos pequeños, podemos usar &lt;style&gt; dentro de &lt;head&gt;. Para separar archivos, usamos &lt;link&gt;.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;estilos.css&quot;&gt;
+&lt;/head&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>/* Archivo estilos.css */
+p {
+    font-size: 22px;
+}</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 4" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;/* Archivo estilos.css */
+p {
+    font-size: 22px;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;head&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;estilos.css&quot;&gt;
+&lt;/head&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">El archivo CSS contiene reglas, sin etiquetas &lt;style&gt;. La ruta parte del HTML; guarda ambos archivos.</p>
+</section>
+<section id="diapo-5" aria-labelledby="titulo-5" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 05</p>
+<h1 id="titulo-5" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Un selector de etiqueta alcanza a todos</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">La regla p selecciona todos los párrafos, también los ingresos y las retiradas.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p&gt;Retirada en cajero: −40 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>p { color: green; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 5" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;p { color: green; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p&gt;Retirada en cajero: −40 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">¿Cómo podemos distinguirlos si ambos son párrafos?</p>
+<details style="font-size:21px;padding:14px;border:1px solid #bac9c2;border-radius:8px;"><summary style="cursor:pointer;">Mostrar explicación</summary><p>Añadiendo una clase según el tipo de movimiento.</p></details></section>
+<section id="diapo-6" aria-labelledby="titulo-6" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 06</p>
+<h1 id="titulo-6" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Clases: agrupar por una característica</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">class identifica un grupo. El nombre lo elegimos nosotros y puede repetirse.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −40 €&lt;/p&gt;
+&lt;p class=&quot;ingreso&quot;&gt;Ingreso de transferencia: +75 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }
+.retirada { color: lightcoral; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 6" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }
+.retirada { color: lightcoral; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −40 €&lt;/p&gt;
+&lt;p class=&quot;ingreso&quot;&gt;Ingreso de transferencia: +75 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">En HTML: class=&quot;ingreso&quot;, sin punto. En CSS: .ingreso, con punto.</p>
+</section>
+<section id="diapo-7" aria-labelledby="titulo-7" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 07</p>
+<h1 id="titulo-7" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Una regla, varios movimientos</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Cada párrafo recibe el estilo de su clase. Cambiar una regla actualiza todos los elementos que coinciden.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −40 €&lt;/p&gt;
+&lt;p class=&quot;ingreso&quot;&gt;Ingreso de transferencia: +75 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −20 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }
+.retirada { color: lightcoral; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 7" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }
+.retirada { color: lightcoral; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso de nómina: +1.200 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −40 €&lt;/p&gt;
+&lt;p class=&quot;ingreso&quot;&gt;Ingreso de transferencia: +75 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada en cajero: −20 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Abre ejemplo-clases-css.html. El texto y el signo también distinguen los movimientos: no dependemos solo del color.</p>
+</section>
+<section id="diapo-8" aria-labelledby="titulo-8" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 08</p>
+<h1 id="titulo-8" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Probar una clase</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Añade otro movimiento con una clase existente. No necesitas escribir otra regla.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso de devolución: +30 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 8" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso de devolución: +30 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">¿Qué ocurre si escribimos class=&quot;.ingreso&quot;?</p>
+<details style="font-size:21px;padding:14px;border:1px solid #bac9c2;border-radius:8px;"><summary style="cursor:pointer;">Mostrar explicación</summary><p>No coincide con .ingreso: el punto pertenece al selector CSS, no al valor de class.</p></details></section>
+<section id="diapo-9" aria-labelledby="titulo-9" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 09</p>
+<h1 id="titulo-9" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Estilos generales y casos concretos</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Primero establecemos características comunes; después cambiamos solo las que dependen del grupo.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada: −20 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>p {
+    font-size: 24px;
+}
+.ingreso { color: green; }
+.retirada { color: lightcoral; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 9" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;p {
+    font-size: 24px;
+}
+.ingreso { color: green; }
+.retirada { color: lightcoral; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+&lt;p class=&quot;retirada&quot;&gt;Retirada: −20 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Las reglas se combinan por propiedad. Las clases de color no eliminan el tamaño de letra.</p>
+</section>
+<section id="diapo-10" aria-labelledby="titulo-10" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 10</p>
+<h1 id="titulo-10" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Currículum: texto y fondos</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">En el currículum de PIMEC aparecen títulos centrados, mayúsculas y fondos por apartados.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;h1&gt;Mi currículum&lt;/h1&gt;
+&lt;h2&gt;Experiencia&lt;/h2&gt;
+&lt;p&gt;Formación y desarrollo web.&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>body { background-color: #d7dfe3; }
+h1 { text-align: center; text-transform: uppercase; }
+h2 { background-color: #809ba8; }
+p { background-color: #b9c9d0; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 10" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;body { background-color: #d7dfe3; }
+h1 { text-align: center; text-transform: uppercase; }
+h2 { background-color: #809ba8; }
+p { background-color: #b9c9d0; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;h1&gt;Mi currículum&lt;/h1&gt;
+&lt;h2&gt;Experiencia&lt;/h2&gt;
+&lt;p&gt;Formación y desarrollo web.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">color cambia el texto; background-color cambia el fondo del elemento.</p>
+</section>
+<section id="diapo-11" aria-labelledby="titulo-11" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 11</p>
+<h1 id="titulo-11" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Greguerías: párrafos de distintos grupos</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">La carpeta usa infancia, naturaleza, literatura y numeros. El mecanismo es el mismo que en los movimientos.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;infancia&quot;&gt;Una frase sobre la infancia.&lt;/p&gt;
+&lt;p class=&quot;naturaleza&quot;&gt;Una frase sobre la naturaleza.&lt;/p&gt;
+&lt;p class=&quot;infancia&quot;&gt;Otra frase sobre la infancia.&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>body { background-color: #258b50; }
+.infancia { color: white; font-style: italic; }
+.naturaleza { color: #ffdbac; font-family: Arial, sans-serif; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 11" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;body { background-color: #258b50; }
+.infancia { color: white; font-style: italic; }
+.naturaleza { color: #ffdbac; font-family: Arial, sans-serif; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;infancia&quot;&gt;Una frase sobre la infancia.&lt;/p&gt;
+&lt;p class=&quot;naturaleza&quot;&gt;Una frase sobre la naturaleza.&lt;/p&gt;
+&lt;p class=&quot;infancia&quot;&gt;Otra frase sobre la infancia.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Un nombre como infancia explica el grupo y permite cambiar su presentación después.</p>
+</section>
+<section id="diapo-12" aria-labelledby="titulo-12" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 12</p>
+<h1 id="titulo-12" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Tipografía: propiedades frecuentes</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Elige una propiedad según el cambio que necesites.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;destacado&quot;&gt;Una frase destacada.&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.destacado {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 12" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.destacado {
+    font-family: Arial, sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;destacado&quot;&gt;Una frase destacada.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">font-weight: grosor · font-style: cursiva · text-decoration: decoración. No hace falta usarlas todas juntas.</p>
+</section>
+<section id="diapo-13" aria-labelledby="titulo-13" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 13</p>
+<h1 id="titulo-13" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Películas: una clase en parte de una línea</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">span permite marcar un fragmento. details y summary aportan el comportamiento de desplegar sin JavaScript.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;details&gt;
+    &lt;summary&gt;&lt;span class=&quot;impar&quot;&gt;👻 🚫&lt;/span&gt;&lt;/summary&gt;
+    &lt;p&gt;Los cazafantasmas&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+    &lt;summary&gt;&lt;span class=&quot;par&quot;&gt;🐒 🌍&lt;/span&gt;&lt;/summary&gt;
+    &lt;p&gt;El planeta de los simios&lt;/p&gt;
+&lt;/details&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.impar { background-color: #ffc9e9; }
+.par { background-color: white; }
+summary { font-size: 36px; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 13" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.impar { background-color: #ffc9e9; }
+.par { background-color: white; }
+summary { font-size: 36px; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;details&gt;
+    &lt;summary&gt;&lt;span class=&quot;impar&quot;&gt;👻 🚫&lt;/span&gt;&lt;/summary&gt;
+    &lt;p&gt;Los cazafantasmas&lt;/p&gt;
+&lt;/details&gt;
+&lt;details&gt;
+    &lt;summary&gt;&lt;span class=&quot;par&quot;&gt;🐒 🌍&lt;/span&gt;&lt;/summary&gt;
+    &lt;p&gt;El planeta de los simios&lt;/p&gt;
+&lt;/details&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">En este ejemplo el fondo colorea el span, no toda la fila.</p>
+</section>
+<section id="diapo-14" aria-labelledby="titulo-14" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 14</p>
+<h1 id="titulo-14" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">La jerarquía HTML explica la herencia</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Los elementos están unos dentro de otros. Algunas propiedades pasan del padre a sus descendientes.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Movimientos&lt;/h2&gt;
+        &lt;p&gt;Ingreso: +100 €&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>main {
+    color: darkblue;
+    font-family: Arial, sans-serif;
+}</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 14" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;main {
+    color: darkblue;
+    font-family: Arial, sans-serif;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Movimientos&lt;/h2&gt;
+        &lt;p&gt;Ingreso: +100 €&lt;/p&gt;
+    &lt;/section&gt;
+&lt;/main&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">h2 y p heredan el color y la familia tipográfica en este ejemplo.</p>
+</section>
+<section id="diapo-15" aria-labelledby="titulo-15" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 15</p>
+<h1 id="titulo-15" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">No todas las propiedades se heredan</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">color y font-family suelen heredarse. border, margin y padding no se heredan por defecto.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;section&gt;
+    &lt;p&gt;Estoy dentro de la sección.&lt;/p&gt;
+&lt;/section&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>section {
+    color: darkblue;
+    border: 3px solid orange;
+    padding: 20px;
+}</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 15" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;section {
+    color: darkblue;
+    border: 3px solid orange;
+    padding: 20px;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section&gt;
+    &lt;p&gt;Estoy dentro de la sección.&lt;/p&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">El párrafo tiene texto azul, pero no recibe su propio borde naranja ni su propio padding de 20px.</p>
+</section>
+<section id="diapo-16" aria-labelledby="titulo-16" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 16</p>
+<h1 id="titulo-16" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Un estilo directo sustituye al heredado</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">La herencia aporta un valor cuando el elemento no tiene otro valor establecido por la cascada.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;section&gt;
+    &lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+    &lt;p&gt;Información de la cuenta.&lt;/p&gt;
+&lt;/section&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>section { color: darkblue; }
+.ingreso { color: green; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 16" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;section { color: darkblue; }
+.ingreso { color: green; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;section&gt;
+    &lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;
+    &lt;p&gt;Información de la cuenta.&lt;/p&gt;
+&lt;/section&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">El primer párrafo es verde. El segundo hereda azul. No se compara la especificidad de section con .ingreso: apuntan a elementos diferentes.</p>
+</section>
+<section id="diapo-17" aria-labelledby="titulo-17" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 17</p>
+<h1 id="titulo-17" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Especificidad: etiqueta y clase</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Si dos reglas normales del mismo origen y capa asignan la misma propiedad al mismo elemento, la clase tiene más especificidad que la etiqueta.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }
+p { color: blue; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 17" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }
+p { color: blue; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">¿De qué color será este párrafo aunque p esté después?</p>
+<details style="font-size:21px;padding:14px;border:1px solid #bac9c2;border-radius:8px;"><summary style="cursor:pointer;">Mostrar explicación</summary><p>Verde: .ingreso tiene más especificidad que p.</p></details></section>
+<section id="diapo-18" aria-labelledby="titulo-18" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 18</p>
+<h1 id="titulo-18" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Si empatan, decide el orden</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Entre declaraciones comparables con la misma especificidad gana la última para esa propiedad.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }
+.ingreso { color: purple; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 18" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }
+.ingreso { color: purple; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot;&gt;Ingreso: +100 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">El resultado es morado. No basta con decir «gana lo último»: antes hay que comprobar qué reglas compiten.</p>
+</section>
+<section id="diapo-19" aria-labelledby="titulo-19" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 19</p>
+<h1 id="titulo-19" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Selectores que encontrarás</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Una clase se puede reutilizar. Un id debe ser único dentro de la página.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p id=&quot;aviso&quot; class=&quot;ingreso&quot;&gt;Ingreso pendiente.&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>p { color: black; }
+.ingreso { color: green; }
+p.ingreso { color: darkgreen; }
+#aviso { color: purple; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 19" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;p { color: black; }
+.ingreso { color: green; }
+p.ingreso { color: darkgreen; }
+#aviso { color: purple; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p id=&quot;aviso&quot; class=&quot;ingreso&quot;&gt;Ingreso pendiente.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Aquí gana #aviso. p.ingreso significa «párrafos con clase ingreso». Usa clases para grupos; no necesitas ids para resolver estos ejercicios.</p>
+</section>
+<section id="diapo-20" aria-labelledby="titulo-20" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 20</p>
+<h1 id="titulo-20" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">El inspector: comprobar, no adivinar</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Clic derecho sobre un párrafo → Inspeccionar → panel Estilos / Styles.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">1. Localiza su etiqueta y class. 2. Busca color. 3. Observa las declaraciones tachadas. 4. Consulta Calculado / Computed para ver el valor final. 5. Activa y desactiva una declaración.</p>
+</section>
+<section id="diapo-21" aria-labelledby="titulo-21" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 21</p>
+<h1 id="titulo-21" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Probar estilos desde el navegador</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">En element.style puedes añadir una declaración en línea para explorar su efecto.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;ingreso&quot; style=&quot;color: purple;&quot;&gt;Ingreso: +100 €&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.ingreso { color: green; }</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 21" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.ingreso { color: green; }&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;ingreso&quot; style=&quot;color: purple;&quot;&gt;Ingreso: +100 €&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Frente a nuestras reglas normales, el estilo en línea prevalece. Los cambios hechos en el inspector son temporales: cópialos al archivo y guarda. No necesitas !important para estos ejercicios.</p>
+</section>
+<section id="diapo-22" aria-labelledby="titulo-22" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 22</p>
+<h1 id="titulo-22" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Espacios: dentro y fuera de la caja</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Ampliación breve para separar apartados: padding es espacio interior; margin es espacio exterior.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">HTML</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>&lt;p class=&quot;aviso&quot;&gt;Revisa los movimientos.&lt;/p&gt;</code></pre><p style="font-size:14px;letter-spacing:2px;color:#5b7080;">CSS</p><pre style="white-space:pre-wrap;overflow-wrap:anywhere;background:#172b39;color:#eff6ff;padding:22px;border-radius:10px;font-size:clamp(16px,1.6vw,22px);line-height:1.55;margin:0 0 18px;"><code>.aviso {
+    border: 2px solid darkblue;
+    padding: 16px;
+    margin: 24px;
+}</code></pre></div><div style="flex:1 1 330px;min-width:0;border:1px solid #b8c6cc;border-radius:12px;overflow:hidden;background:white;"><div style="background:#e7edf1;padding:10px 16px;color:#53616e;font-size:15px;">● ● ● &nbsp; Vista de navegador · ejemplo.html</div><iframe title="Resultado del ejemplo 22" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;head&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;.aviso {
+    border: 2px solid darkblue;
+    padding: 16px;
+    margin: 24px;
+}&lt;/style&gt;&lt;/head&gt;&lt;body&gt;&lt;p class=&quot;aviso&quot;&gt;Revisa los movimientos.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;" style="display:block;border:0;width:100%;height:310px;background:white;"></iframe></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Cambia cada valor por separado y observa qué distancia modifica.</p>
+</section>
+<section id="diapo-23" aria-labelledby="titulo-23" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 23</p>
+<h1 id="titulo-23" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Resolver PIMEC paso a paso</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Abre un ejercicio, identifica grupos y cambia pocas propiedades cada vez.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Currículum: fondos, títulos y alineación. Greguerías: clases y tipografía. Películas: fondos alternos y tamaño. Guarda, compara con la captura e inspecciona. No venimos a hacer webs perfectas: queremos entender las decisiones.</p>
+</section>
+<section id="diapo-24" aria-labelledby="titulo-24" style="padding:12px 0 26px;display:none;">
+<p style="color:#167c70;letter-spacing:3px;font-weight:bold;font-size:15px;">CSS / 24</p>
+<h1 id="titulo-24" style="font-size:clamp(30px,4vw,50px);line-height:1.12;margin:12px 0 22px;">Recursos y práctica final</h1>
+<p style="font-size:clamp(20px,2.2vw,27px);max-width:1000px;">Explica por qué dos párrafos de la misma etiqueta pueden tener colores distintos.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:start;"><div style="flex:1 1 380px;min-width:0;"></div></div>
+<p style="font-size:22px;background:#e6f0ea;border-left:5px solid #167c70;padding:20px;line-height:1.6;">Cambia el color de todos los ingresos con una sola declaración. Añade un movimiento. Inspecciona una retirada y localiza la regla que le da color.</p>
+<details style="font-size:21px;padding:14px;border:1px solid #bac9c2;border-radius:8px;"><summary style="cursor:pointer;">Mostrar explicación</summary><p>HTML asigna class a cada grupo; CSS selecciona esa clase con un punto y define su color.</p></details><p style="font-size:18px;"><a href="ejemplo-clases-css.html">Abrir movimientos bancarios</a> · <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Handling_conflicts" target="_blank" rel="noopener">MDN: herencia y cascada</a> · <a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss_sel_class" target="_blank" rel="noopener">Probar clases</a> · <a href="https://www.youtube.com/watch?v=Qp8YQnSbt6k" target="_blank" rel="noopener">Vídeo compartido en clase</a></p></section></main>
+<footer style="padding:18px 5%;border-top:1px solid #cbd5cd;display:flex;flex-wrap:wrap;align-items:center;gap:12px;">
+<span id="contador" aria-live="polite" style="margin-right:auto;"></span>
+<button id="anterior" style="font:inherit;padding:12px 20px;cursor:pointer;">Anterior</button>
+<button id="siguiente" style="font:inherit;padding:12px 20px;background:#126d67;color:white;border:1px solid #126d67;cursor:pointer;">Siguiente</button>
+<button id="pantalla" style="font:inherit;padding:12px 20px;cursor:pointer;">Pantalla completa</button>
+<small style="width:100%;">Flechas ← → para avanzar. Inicio / Fin para saltar. Los ejemplos funcionan sin Internet; los recursos enlazados requieren conexión.</small>
+</footer>
+<noscript><p>JavaScript está desactivado. Puedes leer la primera diapositiva; actívalo para recorrer la presentación.</p></noscript>
+<script>
+const slides = Array.from(document.querySelectorAll("main > section"));
+const indice = document.getElementById("indice");
+let actual = 0;
+function mostrar(numero) {
+    actual = Math.max(0, Math.min(slides.length - 1, numero));
+    slides.forEach((slide, i) => { slide.style.display = i === actual ? "block" : "none"; });
+    indice.value = actual;
+    document.getElementById("contador").textContent = (actual + 1) + " / " + slides.length;
+    document.getElementById("anterior").disabled = actual === 0;
+    document.getElementById("siguiente").disabled = actual === slides.length - 1;
+    window.scrollTo(0, 0);
+}
+document.getElementById("anterior").onclick = () => mostrar(actual - 1);
+document.getElementById("siguiente").onclick = () => mostrar(actual + 1);
+indice.onchange = () => mostrar(Number(indice.value));
+document.addEventListener("keydown", event => {
+    if (/SELECT|INPUT|TEXTAREA|BUTTON|SUMMARY/.test(event.target.tagName) || event.altKey || event.ctrlKey || event.metaKey) return;
+    const destinos = {ArrowRight: actual + 1, ArrowLeft: actual - 1, Home: 0, End: slides.length - 1};
+    if (event.key in destinos) { event.preventDefault(); mostrar(destinos[event.key]); }
+});
+document.getElementById("pantalla").onclick = async () => {
+    try {
+        if (document.fullscreenElement) await document.exitFullscreen();
+        else await document.documentElement.requestFullscreen();
+    } catch { document.getElementById("contador").textContent += " · Usa F11 para pantalla completa."; }
+};
+mostrar(0);
+</script>
+</body>
+</html>
+
