@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>5. Width: ¿cuánto mide la caja?</title>
+<style>
+p { width: 240px; margin: 0; background-color: lightyellow; }
+.solo-contenido { padding: 0; border: 0; }
+.con-espacios { padding: 20px; border: 5px solid steelblue; }
+</style>
+</head>
+<body style="font-family:Arial,sans-serif;color:#24343d;line-height:1.6;padding:16px;">
+<header style="margin-bottom:28px;">
+<a href="index.html">Índice de ejemplos</a>
+<h2>5. Width: ¿cuánto mide la caja?</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Por defecto, width indica el ancho del contenido. El padding y el borde se suman.</p>
+</header>
+<p class="solo-contenido">Contenido de 240px de ancho.</p>
+<p class="con-espacios">Contenido de 240px de ancho, con padding y borde añadidos.</p>
+<section style="margin-top:48px;border-top:1px solid #aaa;padding-top:16px;">
+<h2>Qué estamos viendo</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Primera caja: 240px. Segunda caja de borde a borde: 5 + 20 + 240 + 20 + 5 = 290px. El margen horizontal, si lo añadimos, ocupa espacio exterior adicional. Este ejemplo conserva el modelo inicial content-box.</p>
+<h2>El HTML del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>&lt;p class="solo-contenido"&gt;Contenido de 240px de ancho.&lt;/p&gt;
+&lt;p class="con-espacios"&gt;Contenido de 240px de ancho, con padding y borde añadidos.&lt;/p&gt;</code></pre>
+<h2>El CSS del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>p { width: 240px; margin: 0; background-color: lightyellow; }
+.solo-contenido { padding: 0; border: 0; }
+.con-espacios { padding: 20px; border: 5px solid steelblue; }</code></pre>
+<h2>Prueba un cambio</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Cambia el padding a 10px. El ancho de borde a borde será 270px.</p>
+<a href="index.html">Volver al índice</a>
+</section>
+</body>
+</html>
+

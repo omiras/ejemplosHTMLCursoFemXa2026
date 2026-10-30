@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3. Margin: espacio por fuera</title>
+<style>
+p { background-color: lightyellow; border: 3px solid steelblue; padding: 12px; margin: 0; }
+.sin-margen { margin-left: 0; }
+.con-margen { margin-left: 40px; margin-bottom: 40px; }
+</style>
+</head>
+<body style="font-family:Arial,sans-serif;color:#24343d;line-height:1.6;padding:16px;">
+<header style="margin-bottom:28px;">
+<a href="index.html">Índice de ejemplos</a>
+<h2>3. Margin: espacio por fuera</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">El margen separa una caja de lo que tiene alrededor.</p>
+</header>
+<p class="sin-margen">Primer párrafo: sin margen.</p>
+<p class="con-margen">Segundo párrafo: 40px de margen a la izquierda y debajo.</p>
+<p class="sin-margen">Tercer párrafo: sin margen.</p>
+<section style="margin-top:48px;border-top:1px solid #aaa;padding-top:16px;">
+<h2>Qué estamos viendo</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">El hueco blanco a la izquierda y debajo del segundo párrafo es margen: está fuera del borde. El espacio amarillo entre el texto y el borde es padding. Quitamos los márgenes iniciales con margin: 0; aquí solo el segundo párrafo aporta margen vertical.</p>
+<h2>El HTML del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>&lt;p class="sin-margen"&gt;Primer párrafo: sin margen.&lt;/p&gt;
+&lt;p class="con-margen"&gt;Segundo párrafo: 40px de margen a la izquierda y debajo.&lt;/p&gt;
+&lt;p class="sin-margen"&gt;Tercer párrafo: sin margen.&lt;/p&gt;</code></pre>
+<h2>El CSS del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>p { background-color: lightyellow; border: 3px solid steelblue; padding: 12px; margin: 0; }
+.sin-margen { margin-left: 0; }
+.con-margen { margin-left: 40px; margin-bottom: 40px; }</code></pre>
+<h2>Prueba un cambio</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Cambia margin-bottom a 80px: aumenta la separación con el tercer párrafo, no el espacio interior.</p>
+<a href="04-elegir-cada-lado.html">Siguiente ejemplo →</a>
+</section>
+</body>
+</html>
+

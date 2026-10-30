@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4. Elegir un lado concreto</title>
+<style>
+p { background-color: lightyellow; border: 3px solid steelblue; margin: 0; }
+.espacio-interior { padding-top: 10px; padding-right: 20px; padding-bottom: 30px; padding-left: 40px; }
+.espacio-exterior { padding: 10px; margin-top: 30px; margin-left: 60px; }
+</style>
+</head>
+<body style="font-family:Arial,sans-serif;color:#24343d;line-height:1.6;padding:16px;">
+<header style="margin-bottom:28px;">
+<a href="index.html">Índice de ejemplos</a>
+<h2>4. Elegir un lado concreto</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Podemos cambiar cada lado por separado con los nombres completos.</p>
+</header>
+<p class="espacio-interior">Dentro: 10px arriba, 20px a la derecha, 30px abajo y 40px a la izquierda.</p>
+<p class="espacio-exterior">Fuera: 30px arriba y 60px a la izquierda. Dentro: 10px en cada lado.</p>
+<section style="margin-top:48px;border-top:1px solid #aaa;padding-top:16px;">
+<h2>Qué estamos viendo</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">top = arriba · right = derecha · bottom = abajo · left = izquierda. Padding cambia la distancia del contenido al borde; margin cambia la separación exterior.</p>
+<h2>El HTML del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>&lt;p class="espacio-interior"&gt;Dentro: 10px arriba, 20px a la derecha, 30px abajo y 40px a la izquierda.&lt;/p&gt;
+&lt;p class="espacio-exterior"&gt;Fuera: 30px arriba y 60px a la izquierda. Dentro: 10px en cada lado.&lt;/p&gt;</code></pre>
+<h2>El CSS del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>p { background-color: lightyellow; border: 3px solid steelblue; margin: 0; }
+.espacio-interior { padding-top: 10px; padding-right: 20px; padding-bottom: 30px; padding-left: 40px; }
+.espacio-exterior { padding: 10px; margin-top: 30px; margin-left: 60px; }</code></pre>
+<h2>Prueba un cambio</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Cambia padding-left a 80px en el primer párrafo y margin-left a 100px en el segundo. Compara qué se mueve.</p>
+<a href="05-width-y-tamano-total.html">Siguiente ejemplo →</a>
+</section>
+</body>
+</html>
+

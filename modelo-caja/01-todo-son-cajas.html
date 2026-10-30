@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1. Los elementos también son cajas</title>
+<style>
+h1 { border: 3px solid steelblue; }
+p { border: 3px solid seagreen; }
+ul { border: 3px solid darkorange; }
+footer { border: 3px solid purple; }
+</style>
+</head>
+<body style="font-family:Arial,sans-serif;color:#24343d;line-height:1.6;padding:16px;">
+<header style="margin-bottom:28px;">
+<a href="index.html">Índice de ejemplos</a>
+<h2>1. Los elementos también son cajas</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Un borde permite ver el espacio que ocupa cada elemento.</p>
+</header>
+<h1>Mi primera caja</h1>
+<p>Este párrafo también es una caja.</p>
+<ul>
+    <li>Una lista tiene su propia caja.</li>
+    <li>Sus elementos también ocupan espacio.</li>
+</ul>
+<footer>Este pie de página tiene un borde morado.</footer>
+<section style="margin-top:48px;border-top:1px solid #aaa;padding-top:16px;">
+<h2>Qué estamos viendo</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">El borde rodea el elemento, no cada letra. Estas etiquetas se muestran como bloques por defecto: empiezan en una línea nueva y normalmente ocupan el ancho disponible.</p>
+<h2>El HTML del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>&lt;h1&gt;Mi primera caja&lt;/h1&gt;
+&lt;p&gt;Este párrafo también es una caja.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Una lista tiene su propia caja.&lt;/li&gt;
+    &lt;li&gt;Sus elementos también ocupan espacio.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;footer&gt;Este pie de página tiene un borde morado.&lt;/footer&gt;</code></pre>
+<h2>El CSS del ejemplo</h2>
+<pre style="background:#f0f3f5;padding:16px;overflow-x:auto;"><code>h1 { border: 3px solid steelblue; }
+p { border: 3px solid seagreen; }
+ul { border: 3px solid darkorange; }
+footer { border: 3px solid purple; }</code></pre>
+<h2>Prueba un cambio</h2>
+<p style="border:0;background:transparent;width:auto;padding:0;margin:12px 0;">Cambia el borde del párrafo de 3px a 8px. Prueba dotted en lugar de solid.</p>
+<a href="02-padding-espacio-interior.html">Siguiente ejemplo →</a>
+</section>
+</body>
+</html>
+

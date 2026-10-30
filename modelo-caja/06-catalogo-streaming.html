@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>NOVA · Cine y series</title>
+<style>* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: #0a0d14; color: white; font-family: Arial, sans-serif; border: 2px solid #ff647c; }
+header { min-height: 78px; display: flex; align-items: center; gap: 32px; padding: 14px 4%; background: #0b101b; border: 2px solid #ffbc64; }
+.logo { font-size: 31px; font-weight: 900; letter-spacing: 6px; color: #ff526e; text-decoration: none; border: 1px solid #ff647c; }
+nav { display: flex; gap: 20px; align-items: center; padding: 6px; border: 1px solid #70dcec; }
+nav a { color: #d6deeb; font-size: 14px; padding: 8px 3px; text-decoration: none; border: 1px solid #a7a5ff; }
+.cuenta { display: flex; gap: 12px; margin-left: auto; padding: 4px; border: 1px solid #70dcec; }
+button { cursor: pointer; font: inherit; color: white; padding: 10px 15px; background: #ffffff16; border-radius: 3px; border: 1px solid #ffda73; }
+.perfil { background: #325c70; font-weight: bold; }
+main { border: 2px solid #72d7ba; }
+.destacada { min-height: 440px; display: flex; align-items: center; padding: 36px 4%; background-image: linear-gradient(90deg,#0a0d14 0%,#0a0d14d9 33%,#0a0d1430 75%), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2342647d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%23da946e%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E"); background-size: cover; background-position: center; border: 2px solid #78baff; }
+.contenido { max-width: 580px; padding: 14px; border: 2px solid #e3a8ff; }
+.sello { display: inline-block; font-size: 12px; letter-spacing: 4px; font-weight: bold; padding: 6px; color: #ffb7bf; border: 1px solid #ff647c; }
+h1 { margin: 14px 0; font-size: clamp(36px,4.2vw,68px); line-height: .98; letter-spacing: -2px; padding: 6px; border: 2px solid #ffe085; }
+.ficha { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 12px 0; padding: 6px; border: 1px solid #70dcec; }
+.ficha span { font-size: 13px; padding: 4px; border: 1px solid #a7a5ff; }
+.coincidencia { color: #80e9b0; }
+.sinopsis { max-width: 490px; margin: 16px 0; font-size: 16px; line-height: 1.6; padding: 8px; color: #d8e0ec; border: 1px solid #80e9b0; }
+.acciones { display: flex; flex-wrap: wrap; gap: 12px; padding: 8px; border: 1px solid #ff9ebd; }
+.reproducir { background: #f1f4fa; color: #10151c; font-weight: bold; }
+.catalogo { padding: 16px 4% 22px; border: 2px solid #ffbc64; }
+.titulo-fila { display: flex; align-items: center; justify-content: space-between; padding: 6px; margin-bottom: 10px; border: 1px solid #e3a8ff; }
+h2 { font-size: 20px; margin: 0; padding: 5px; border: 1px solid #ffe085; }
+.ver-todo { color: #b8c9dd; font-size: 12px; padding: 5px; text-decoration: none; border: 1px solid #70dcec; }
+.fila { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 12px; padding: 8px; border: 1px solid #72d7ba; }
+.pelicula { min-height: 160px; overflow: hidden; background-size: cover; background-position: center; border: 2px solid #78baff; transition: transform .2s; }
+.pelicula:hover, .pelicula:focus { transform: translateY(-4px); outline: 2px solid white; }
+.numero { display: inline-block; margin: 8px; padding: 4px 7px; font-size: 11px; background: #0a0d1490; border: 1px solid #ffbc64; }
+.datos { padding: 35px 8px 8px; background: linear-gradient(transparent,#090d16); border: 1px solid #e3a8ff; }
+h3 { font-size: 13px; letter-spacing: 1px; margin: 0 0 5px; padding: 4px; border: 1px solid #ffe085; }
+.datos p { color: #ccd8e8; font-size: 10px; margin: 0; padding: 4px; border: 1px solid #80e9b0; }
+footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 11px; color: #8b9bb3; padding: 12px 4%; border: 2px solid #e3a8ff; }
+footer span { padding: 4px; border: 1px solid #70dcec; }
+@media (min-height: 900px) { .destacada { min-height: 55vh; } .pelicula { min-height: 19vh; } }
+@media (max-width: 1000px) { header { gap: 12px; } nav { gap: 8px; } .fila { grid-template-columns: repeat(3,minmax(0,1fr)); } }
+@media (max-width: 650px) { header { flex-wrap: wrap; } nav { order: 3; width: 100%; flex-wrap: wrap; } .fila { grid-template-columns: repeat(2,minmax(0,1fr)); } .destacada { padding: 20px 3%; } .contenido { max-width: 100%; } }</style></head>
+<body>
+<header>
+<a class="logo" href="#">NOVA</a>
+<nav aria-label="Navegación principal"><a href="#">Inicio</a><a href="#catalogo">Series</a><a href="#catalogo">Películas</a><a href="#catalogo">Mi lista</a></nav>
+<div class="cuenta"><button id="pantalla" aria-label="Pantalla completa" title="Pantalla completa">⛶</button><button class="perfil" aria-label="Perfil de Óscar">Ó</button></div>
+</header>
+<main>
+<section class="destacada"><div class="contenido">
+<span class="sello">NOVA ORIGINAL</span>
+<h1>LA ÚLTIMA<br>FRONTERA</h1>
+<div class="ficha"><span class="coincidencia">98 % para ti</span><span>2026</span><span>16+</span><span>2 h 08 min</span><span>4K</span></div>
+<p class="sinopsis">Más allá de las montañas, una exploradora encuentra el camino hacia un lugar que todos creían perdido. El viaje de su vida acaba de empezar.</p>
+<div class="acciones"><button class="reproducir">▶ Reproducir</button><button>ⓘ Más información</button><button aria-label="Añadir a mi lista">＋</button></div>
+</div></section>
+<section class="catalogo" id="catalogo"><div class="titulo-fila"><h2>Tu próxima historia</h2><a class="ver-todo" href="#catalogo">Ver todo ›</a></div>
+<div class="fila">
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2342647d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%23da946e%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="LA ÚLTIMA FRONTERA"><span class="numero">01</span><div class="datos"><h3>LA ÚLTIMA FRONTERA</h3><p>Aventura · 2026</p></div></article>
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2334576d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%23d6f1f2%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="BAJO CERO"><span class="numero">02</span><div class="datos"><h3>BAJO CERO</h3><p>Suspense · 2026</p></div></article>
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2351285e%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22120%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22149%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%22178%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22240%22%20y%3D%22207%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22320%22%20y%3D%22236%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22400%22%20y%3D%22135%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22480%22%20y%3D%22164%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22560%22%20y%3D%22193%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22640%22%20y%3D%22222%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22720%22%20y%3D%22121%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="CIUDAD NEÓN"><span class="numero">03</span><div class="datos"><h3>CIUDAD NEÓN</h3><p>Ciencia ficción · 2026</p></div></article>
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23164454%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%2363bcbb%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="MAREA NEGRA"><span class="numero">04</span><div class="datos"><h3>MAREA NEGRA</h3><p>Drama · 2026</p></div></article>
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23252248%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22490%22%20cy%3D%22160%22%20r%3D%2290%22%20fill%3D%22%23ba97ef%22%2F%3E%3Cellipse%20cx%3D%22490%22%20cy%3D%22160%22%20rx%3D%22155%22%20ry%3D%2224%22%20fill%3D%22none%22%20stroke%3D%22%23d3bdf3%22%20stroke-width%3D%227%22%20transform%3D%22rotate(-25%20490%20160)%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="ÓRBITA"><span class="numero">05</span><div class="datos"><h3>ÓRBITA</h3><p>Ciencia ficción · 2026</p></div></article>
+<article class="pelicula" style='background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%23604b34%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Crect%20x%3D%220%22%20y%3D%22120%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%2280%22%20y%3D%22149%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22160%22%20y%3D%22178%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22240%22%20y%3D%22207%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22320%22%20y%3D%22236%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22400%22%20y%3D%22135%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22480%22%20y%3D%22164%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22560%22%20y%3D%22193%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22640%22%20y%3D%22222%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3Crect%20x%3D%22720%22%20y%3D%22121%22%20width%3D%2265%22%20height%3D%22330%22%20fill%3D%22%23101624%22%2F%3E%3C%2Fsvg%3E")' tabindex="0" aria-label="EL ÚLTIMO TREN"><span class="numero">06</span><div class="datos"><h3>EL ÚLTIMO TREN</h3><p>Thriller · 2026</p></div></article>
+</div></section>
+</main>
+<footer><span>NOVA · Cine y series</span><span>Audio y subtítulos · Ayuda · Privacidad</span></footer>
+<script>
+document.getElementById('pantalla').addEventListener('click', async () => {
+    try {
+        if (document.fullscreenElement) await document.exitFullscreen();
+        else await document.documentElement.requestFullscreen();
+    } catch {}
+});
+</script>
+</body></html>
