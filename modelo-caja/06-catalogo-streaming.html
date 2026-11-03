@@ -1,42 +1,266 @@
 <!DOCTYPE html>
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>NOVA · Cine y series</title>
-<style>* { box-sizing: border-box; }
-body { margin: 0; min-height: 100vh; background: #0a0d14; color: white; font-family: Arial, sans-serif; border: 2px solid #ff647c; }
-header { min-height: 78px; display: flex; align-items: center; gap: 32px; padding: 14px 4%; background: #0b101b; border: 2px solid #ffbc64; }
-.logo { font-size: 31px; font-weight: 900; letter-spacing: 6px; color: #ff526e; text-decoration: none; border: 1px solid #ff647c; }
-nav { display: flex; gap: 20px; align-items: center; padding: 6px; border: 1px solid #70dcec; }
-nav a { color: #d6deeb; font-size: 14px; padding: 8px 3px; text-decoration: none; border: 1px solid #a7a5ff; }
-.cuenta { display: flex; gap: 12px; margin-left: auto; padding: 4px; border: 1px solid #70dcec; }
-button { cursor: pointer; font: inherit; color: white; padding: 10px 15px; background: #ffffff16; border-radius: 3px; border: 1px solid #ffda73; }
-.perfil { background: #325c70; font-weight: bold; }
-main { border: 2px solid #72d7ba; }
-.destacada { min-height: 440px; display: flex; align-items: center; padding: 36px 4%; background-image: linear-gradient(90deg,#0a0d14 0%,#0a0d14d9 33%,#0a0d1430 75%), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2342647d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%23da946e%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E"); background-size: cover; background-position: center; border: 2px solid #78baff; }
-.contenido { max-width: 580px; padding: 14px; border: 2px solid #e3a8ff; }
-.sello { display: inline-block; font-size: 12px; letter-spacing: 4px; font-weight: bold; padding: 6px; color: #ffb7bf; border: 1px solid #ff647c; }
-h1 { margin: 14px 0; font-size: clamp(36px,4.2vw,68px); line-height: .98; letter-spacing: -2px; padding: 6px; border: 2px solid #ffe085; }
-.ficha { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 12px 0; padding: 6px; border: 1px solid #70dcec; }
-.ficha span { font-size: 13px; padding: 4px; border: 1px solid #a7a5ff; }
-.coincidencia { color: #80e9b0; }
-.sinopsis { max-width: 490px; margin: 16px 0; font-size: 16px; line-height: 1.6; padding: 8px; color: #d8e0ec; border: 1px solid #80e9b0; }
-.acciones { display: flex; flex-wrap: wrap; gap: 12px; padding: 8px; border: 1px solid #ff9ebd; }
-.reproducir { background: #f1f4fa; color: #10151c; font-weight: bold; }
-.catalogo { padding: 16px 4% 22px; border: 2px solid #ffbc64; }
-.titulo-fila { display: flex; align-items: center; justify-content: space-between; padding: 6px; margin-bottom: 10px; border: 1px solid #e3a8ff; }
-h2 { font-size: 20px; margin: 0; padding: 5px; border: 1px solid #ffe085; }
-.ver-todo { color: #b8c9dd; font-size: 12px; padding: 5px; text-decoration: none; border: 1px solid #70dcec; }
-.fila { display: grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap: 12px; padding: 8px; border: 1px solid #72d7ba; }
-.pelicula { min-height: 160px; overflow: hidden; background-size: cover; background-position: center; border: 2px solid #78baff; transition: transform .2s; }
-.pelicula:hover, .pelicula:focus { transform: translateY(-4px); outline: 2px solid white; }
-.numero { display: inline-block; margin: 8px; padding: 4px 7px; font-size: 11px; background: #0a0d1490; border: 1px solid #ffbc64; }
-.datos { padding: 35px 8px 8px; background: linear-gradient(transparent,#090d16); border: 1px solid #e3a8ff; }
-h3 { font-size: 13px; letter-spacing: 1px; margin: 0 0 5px; padding: 4px; border: 1px solid #ffe085; }
-.datos p { color: #ccd8e8; font-size: 10px; margin: 0; padding: 4px; border: 1px solid #80e9b0; }
-footer { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; font-size: 11px; color: #8b9bb3; padding: 12px 4%; border: 2px solid #e3a8ff; }
-footer span { padding: 4px; border: 1px solid #70dcec; }
-@media (min-height: 900px) { .destacada { min-height: 55vh; } .pelicula { min-height: 19vh; } }
-@media (max-width: 1000px) { header { gap: 12px; } nav { gap: 8px; } .fila { grid-template-columns: repeat(3,minmax(0,1fr)); } }
-@media (max-width: 650px) { header { flex-wrap: wrap; } nav { order: 3; width: 100%; flex-wrap: wrap; } .fila { grid-template-columns: repeat(2,minmax(0,1fr)); } .destacada { padding: 20px 3%; } .contenido { max-width: 100%; } }</style></head>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #0a0d14;
+    color: white;
+    font-family: Arial, sans-serif;
+    border: 2px solid #ff647c;
+}
+header {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 14px 4%;
+    background: #0b101b;
+    border: 2px solid #ffbc64;
+}
+.logo {
+    font-size: 31px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #ff526e;
+    text-decoration: none;
+    border: 1px solid #ff647c;
+}
+nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding: 6px;
+    border: 1px solid #70dcec;
+}
+nav a {
+    color: #d6deeb;
+    font-size: 14px;
+    padding: 8px 3px;
+    text-decoration: none;
+    border: 1px solid #a7a5ff;
+}
+.cuenta {
+    display: flex;
+    gap: 12px;
+    margin-left: auto;
+    padding: 4px;
+    border: 1px solid #70dcec;
+}
+button {
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    padding: 10px 15px;
+    background: #ffffff16;
+    border-radius: 3px;
+    border: 1px solid #ffda73;
+}
+.perfil {
+    background: #325c70;
+    font-weight: bold;
+}
+main {
+    border: 2px solid #72d7ba;
+}
+.destacada {
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    padding: 36px 4%;
+    background-image: linear-gradient(90deg,#0a0d14 0%,#0a0d14d9 33%,#0a0d1430 75%), url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20500%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22a%22%20x2%3D%220%22%20y2%3D%221%22%3E%3Cstop%20stop-color%3D%22%2342647d%22%2F%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23121725%22%2F%3E%3C%2FlinearGradient%3E%3C%2Fdefs%3E%3Cpath%20fill%3D%22url(%23a)%22%20d%3D%22M0%200H800V500H0z%22%2F%3E%3Ccircle%20cx%3D%22520%22%20cy%3D%22115%22%20r%3D%2250%22%20fill%3D%22%23da946e%22%2F%3E%3Cpath%20d%3D%22M0%20400L180%20100L350%20310L490%20150L800%20420V500H0%22%20fill%3D%22%23233d4a%22%2F%3E%3Cpath%20d%3D%22M130%20185L180%20100L245%20195L180%20160Z%22%20fill%3D%22%23dbe5df%22%2F%3E%3Cpath%20d%3D%22M0%20460L180%20280L350%20420L490%20300L800%20460V500H0%22%20fill%3D%22%23101e29%22%2F%3E%3C%2Fsvg%3E");
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #78baff;
+}
+.contenido {
+    max-width: 580px;
+    padding: 14px;
+    border: 2px solid #e3a8ff;
+}
+.sello {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 4px;
+    font-weight: bold;
+    padding: 6px;
+    color: #ffb7bf;
+    border: 1px solid #ff647c;
+}
+h1 {
+    margin: 14px 0;
+    font-size: clamp(36px,4.2vw,68px);
+    line-height: .98;
+    letter-spacing: -2px;
+    padding: 6px;
+    border: 2px solid #ffe085;
+}
+.ficha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    margin: 12px 0;
+    padding: 6px;
+    border: 1px solid #70dcec;
+}
+.ficha span {
+    font-size: 13px;
+    padding: 4px;
+    border: 1px solid #a7a5ff;
+}
+.coincidencia {
+    color: #80e9b0;
+}
+.sinopsis {
+    max-width: 490px;
+    margin: 16px 0;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 8px;
+    color: #d8e0ec;
+    border: 1px solid #80e9b0;
+}
+.acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px;
+    border: 1px solid #ff9ebd;
+}
+.reproducir {
+    background: #f1f4fa;
+    color: #10151c;
+    font-weight: bold;
+}
+.catalogo {
+    padding: 16px 4% 22px;
+    border: 2px solid #ffbc64;
+}
+.titulo-fila {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #e3a8ff;
+}
+h2 {
+    font-size: 20px;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid #ffe085;
+}
+.ver-todo {
+    color: #b8c9dd;
+    font-size: 12px;
+    padding: 5px;
+    text-decoration: none;
+    border: 1px solid #70dcec;
+}
+.fila {
+    display: grid;
+    grid-template-columns: repeat(6,minmax(0,1fr));
+    gap: 12px;
+    padding: 8px;
+    border: 1px solid #72d7ba;
+}
+.pelicula {
+    min-height: 160px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    border: 2px solid #78baff;
+    transition: transform .2s;
+}
+.pelicula:hover, .pelicula:focus {
+    transform: translateY(-4px);
+    outline: 2px solid white;
+}
+.numero {
+    display: inline-block;
+    margin: 8px;
+    padding: 4px 7px;
+    font-size: 11px;
+    background: #0a0d1490;
+    border: 1px solid #ffbc64;
+}
+.datos {
+    padding: 35px 8px 8px;
+    background: linear-gradient(transparent,#090d16);
+    border: 1px solid #e3a8ff;
+}
+h3 {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin: 0 0 5px;
+    padding: 4px;
+    border: 1px solid #ffe085;
+}
+.datos p {
+    color: #ccd8e8;
+    font-size: 10px;
+    margin: 0;
+    padding: 4px;
+    border: 1px solid #80e9b0;
+}
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 16px;
+    font-size: 11px;
+    color: #8b9bb3;
+    padding: 12px 4%;
+    border: 2px solid #e3a8ff;
+}
+footer span {
+    padding: 4px;
+    border: 1px solid #70dcec;
+}
+@media (min-height: 900px) {
+    .destacada {
+        min-height: 55vh;
+    }
+    .pelicula {
+        min-height: 19vh;
+    }
+}
+@media (max-width: 1000px) {
+    header {
+        gap: 12px;
+    }
+    nav {
+        gap: 8px;
+    }
+    .fila {
+        grid-template-columns: repeat(3,minmax(0,1fr));
+    }
+}
+@media (max-width: 650px) {
+    header {
+        flex-wrap: wrap;
+    }
+    nav {
+        order: 3;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .fila {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+    }
+    .destacada {
+        padding: 20px 3%;
+    }
+    .contenido {
+        max-width: 100%;
+    }
+}
+</style></head>
 <body>
 <header>
 <a class="logo" href="#">NOVA</a>

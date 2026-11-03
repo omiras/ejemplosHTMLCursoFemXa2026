@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shorthands de margin, padding y border · IFCD0210</title>
+<style>
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    background: #f4f1ea;
+    color: #192d36;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+header, footer {
+    padding: 16px 5%;
+    border-bottom: 1px solid #cbd5cd;
+}
+header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+main {
+    max-width: 1320px;
+    margin: auto;
+    padding: 24px 5%;
+    min-height: 75vh;
+}
+.eyebrow {
+    color: #126d67;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+h1 {
+    margin: 12px 0;
+    font-size: clamp(30px, 4vw, 48px);
+    line-height: 1.15;
+}
+.intro {
+    font-size: 23px;
+}
+.comparison {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+}
+h2 {
+    font-size: 17px;
+    color: #526675;
+}
+pre {
+    margin: 0;
+    padding: 20px;
+    border-radius: 8px;
+    background: #172b39;
+    color: #eef6ff;
+    font-size: clamp(17px, 1.8vw, 23px);
+    line-height: 1.55;
+    white-space: pre;
+    overflow-x: auto;
+}
+.note {
+    padding: 18px;
+    background: #e0ece5;
+    border-left: 5px solid #126d67;
+    font-size: 20px;
+}
+details {
+    margin: 16px 0;
+}
+summary {
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+iframe {
+    width: 100%;
+    height: 240px;
+    border: 1px solid #8ca6aa;
+    background: white;
+}
+button, select {
+    font: inherit;
+    padding: 10px 14px;
+}
+select {
+    max-width: 85vw;
+}
+button {
+    cursor: pointer;
+}
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #cbd5cd;
+}
+#contador {
+    margin-right: auto;
+}
+@media (max-width: 760px) {
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+}
+@media print {
+    header, footer, details {
+        display: none;
+    }
+    .slide[hidden] {
+        display: block !important;
+    }
+    .slide {
+        break-after: page;
+    }
+}
+</style>
+</head>
+<body>
+<header><strong>IFCD0210 / CSS</strong><label>Ir a <select id="indice"><option value="0">1. Shorthand: una propiedad resume varias</option><option value="1">2. Margin con un valor</option><option value="2">3. Margin con dos valores</option><option value="3">4. Margin con tres valores</option><option value="4">5. Margin con cuatro valores</option><option value="5">6. Padding sigue el mismo orden</option><option value="6">7. Padding con cuatro valores</option><option value="7">8. Border combina tres características</option><option value="8">9. El estilo del borde importa</option><option value="9">10. Un borde en un solo lado</option><option value="10">11. Grosor distinto en cada lado</option><option value="11">12. El orden de las declaraciones cuenta</option><option value="12">13. Prueba a desarrollar los shorthands</option></select></label></header>
+<main><section class="slide" >
+<p class="eyebrow">MODELO DE CAJA / 01</p>
+<h1>Shorthand: una propiedad resume varias</h1><p class="intro">Podemos escribir cada lado por separado o utilizar una propiedad abreviada. Ambas versiones de este ejemplo producen el mismo resultado.</p>
+<div class="comparison"><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}</code></pre></article><article><h2>Forma abreviada</h2><pre><code>.caja {
+    padding: 20px;
+}</code></pre></article></div>
+<p class="note">Una declaración por línea. Un shorthand puede contener varios valores dentro de esa misma declaración.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 1" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    padding: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 02</p>
+<h1>Margin con un valor</h1><p class="intro">El mismo margen en los cuatro lados.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    margin: 20px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}</code></pre></article></div>
+<p class="note">20px arriba · 20px derecha · 20px abajo · 20px izquierda.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 2" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    margin: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 03</p>
+<h1>Margin con dos valores</h1><p class="intro">Primero arriba y abajo. Después izquierda y derecha.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    margin: 10px 40px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    margin-left: 40px;
+}</code></pre></article></div>
+<p class="note">10px verticales · 40px horizontales. No significa «arriba y derecha».</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 3" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    margin: 10px 40px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 04</p>
+<h1>Margin con tres valores</h1><p class="intro">Arriba → izquierda y derecha → abajo.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    margin: 10px 40px 30px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}</code></pre></article></div>
+<p class="note">El valor central se utiliza en los dos lados horizontales.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 4" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    margin: 10px 40px 30px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 05</p>
+<h1>Margin con cuatro valores</h1><p class="intro">Empieza arriba y sigue el sentido de las agujas del reloj: arriba → derecha → abajo → izquierda.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    margin: 10px 20px 30px 40px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 40px;
+}</code></pre></article></div>
+<p class="note">TOP → RIGHT → BOTTOM → LEFT.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 5" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    margin: 10px 20px 30px 40px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 06</p>
+<h1>Padding sigue el mismo orden</h1><p class="intro">Los valores se reparten igual que en margin. La diferencia es dónde se aplica el espacio: padding está dentro del borde.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    padding: 10px 40px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    padding-top: 10px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+}</code></pre></article></div>
+<p class="note">El amarillo es el fondo de la caja: también ocupa el padding.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 6" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    padding: 10px 40px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 07</p>
+<h1>Padding con cuatro valores</h1><p class="intro">Arriba, derecha, abajo e izquierda. Cada lado puede tener una medida distinta.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    padding: 10px 20px 30px 40px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 40px;
+}</code></pre></article></div>
+<p class="note">Con uno, dos o tres valores se repite exactamente la distribución que hemos visto para margin.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 7" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    padding: 10px 20px 30px 40px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 08</p>
+<h1>Border combina tres características</h1><p class="intro">Aquí los valores no representan lados: representan grosor, estilo y color del borde.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    border: 4px solid steelblue;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    border-width: 4px;
+    border-style: solid;
+    border-color: steelblue;
+}</code></pre></article></div>
+<p class="note">4px = grosor · solid = estilo · steelblue = color. Afecta a los cuatro lados.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 8" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    border: 4px solid steelblue;
+    padding: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 09</p>
+<h1>El estilo del borde importa</h1><p class="intro">Un grosor y un color no bastan para mostrar un borde nuevo: su estilo inicial es none.</p>
+<div class="comparison"><article><h2>Sin estilo de borde</h2><pre><code>.caja {
+    border-width: 4px;
+    border-color: steelblue;
+}</code></pre></article><article><h2>Con estilo de borde</h2><pre><code>.caja {
+    border-width: 4px;
+    border-style: solid;
+    border-color: steelblue;
+}</code></pre></article></div>
+<p class="note">En la derecha sí hay borde. Otros estilos que podemos probar: dashed y dotted.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 9" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    border-width: 4px;
+    border-style: solid;
+    border-color: steelblue;
+    padding: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 10</p>
+<h1>Un borde en un solo lado</h1><p class="intro">Podemos abreviar solo el borde inferior, sin añadir los otros tres.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    border-bottom: 4px solid steelblue;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    border-bottom-width: 4px;
+    border-bottom-style: solid;
+    border-bottom-color: steelblue;
+}</code></pre></article></div>
+<p class="note">También existen border-top, border-right y border-left.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 10" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    border-bottom: 4px solid steelblue;
+    padding: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 11</p>
+<h1>Grosor distinto en cada lado</h1><p class="intro">border-width admite de uno a cuatro valores, con el mismo reparto por lados que margin y padding.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    border-style: solid;
+    border-color: steelblue;
+    border-width: 2px 4px 8px 12px;
+}</code></pre></article><article><h2>Propiedades separadas</h2><pre><code>.caja {
+    border-style: solid;
+    border-color: steelblue;
+    border-top-width: 2px;
+    border-right-width: 4px;
+    border-bottom-width: 8px;
+    border-left-width: 12px;
+}</code></pre></article></div>
+<p class="note">border: 4px solid blue combina características. border-width: 2px 4px 8px 12px reparte grosores entre lados.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 11" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    border-style: solid;
+    border-color: steelblue;
+    border-width: 2px 4px 8px 12px;
+    padding: 20px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 12</p>
+<h1>El orden de las declaraciones cuenta</h1><p class="intro">El shorthand asigna valores a todas las propiedades que resume. Después podemos cambiar un lado concreto.</p>
+<div class="comparison"><article><h2>Primero lo general</h2><pre><code>.caja {
+    padding: 20px;
+    padding-left: 50px;
+}</code></pre></article><article><h2>Primero el lado concreto</h2><pre><code>.caja {
+    padding-left: 50px;
+    padding: 20px;
+}</code></pre></article></div>
+<p class="note">Izquierda: 50px a la izquierda y 20px en el resto. Derecha: 20px en todos los lados. En estas reglas, la última declaración decide cada valor repetido.</p>
+
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 12" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    padding: 20px;
+    padding-left: 50px;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section>
+<section class="slide" hidden>
+<p class="eyebrow">MODELO DE CAJA / 13</p>
+<h1>Prueba a desarrollar los shorthands</h1><p class="intro">Escribe las propiedades por separado antes de abrir la respuesta.</p>
+<div class="comparison"><article><h2>Forma abreviada</h2><pre><code>.caja {
+    margin: 8px 24px;
+    padding: 12px 20px 30px;
+    border: 3px dotted darkgreen;
+}</code></pre></article></div>
+<p class="note">El navegador no necesita que uses el formato más corto. Elige el que comprendas y puedas mantener.</p>
+<details><summary>Ver respuesta</summary><pre><code>.caja {
+    margin-top: 8px;
+    margin-right: 24px;
+    margin-bottom: 8px;
+    margin-left: 24px;
+    padding-top: 12px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    border-width: 3px;
+    border-style: dotted;
+    border-color: darkgreen;
+}</code></pre></details>
+<details><summary>Ver ejemplo en el navegador</summary><iframe title="Resultado del ejemplo 13" sandbox="" srcdoc="&lt;!DOCTYPE html&gt;&lt;html lang=&quot;es&quot;&gt;&lt;meta charset=&quot;UTF-8&quot;&gt;&lt;style&gt;
+body {
+    margin: 0;
+    padding: 12px;
+    font-family: Arial, sans-serif;
+}
+section {
+    display: flow-root;
+    border: 2px dashed #8ca6aa;
+    background: #eef2f1;
+}
+p {
+    margin: 0;
+    background: #fff1a8;
+}
+.caja {
+    margin: 8px 24px;
+    padding: 12px 20px 30px;
+    border: 3px dotted darkgreen;
+}
+&lt;/style&gt;&lt;section&gt;&lt;p class=&quot;caja&quot;&gt;Contenido de la caja&lt;/p&gt;&lt;/section&gt;&lt;/html&gt;"></iframe></details>
+</section></main>
+<footer><span id="contador" aria-live="polite"></span><button id="anterior">Anterior</button><button id="siguiente">Siguiente</button><button id="pantalla">Pantalla completa</button><small>Flechas ← → · Inicio / Fin</small></footer>
+<script>
+const slides = [...document.querySelectorAll(".slide")];
+const indice = document.getElementById("indice");
+let actual = 0;
+function mostrar(numero) {
+    actual = Math.max(0, Math.min(slides.length - 1, numero));
+    slides.forEach((slide, i) => { slide.hidden = i !== actual; });
+    indice.value = actual;
+    document.getElementById("contador").textContent = (actual + 1) + " / " + slides.length;
+    document.getElementById("anterior").disabled = actual === 0;
+    document.getElementById("siguiente").disabled = actual === slides.length - 1;
+    window.scrollTo(0, 0);
+}
+document.getElementById("anterior").onclick = () => mostrar(actual - 1);
+document.getElementById("siguiente").onclick = () => mostrar(actual + 1);
+indice.onchange = () => mostrar(Number(indice.value));
+document.addEventListener("keydown", event => {
+    if (/SELECT|BUTTON|SUMMARY/.test(event.target.tagName)) return;
+    const destinos = {ArrowLeft: actual - 1, ArrowRight: actual + 1, Home: 0, End: slides.length - 1};
+    if (event.key in destinos) {
+        event.preventDefault();
+        mostrar(destinos[event.key]);
+    }
+});
+document.getElementById("pantalla").onclick = async () => {
+    try {
+        if (document.fullscreenElement) await document.exitFullscreen();
+        else await document.documentElement.requestFullscreen();
+    } catch {}
+};
+mostrar(0);
+</script>
+</body>
+</html>
