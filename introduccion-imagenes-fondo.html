@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a las imágenes de fondo</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 850px; margin: auto; padding: 24px;">
+    <h1>Una imagen de fondo con background-image</h1>
+    <p>Un uso habitual es una portada: un contenedor con una imagen decorativa detrás de un título y un párrafo. El texto sigue siendo HTML y se puede seleccionar.</p>
+    <p><a href="ejemplo-imagen-fondo.html">Abrir el ejemplo preparado para clase</a></p>
+
+    <h2>1. Creamos el contenedor y su texto</h2>
+    <pre><code>&lt;div class="portada"&gt;
+    &lt;h1&gt;Escápate a la montaña&lt;/h1&gt;
+    &lt;p&gt;Descubre nuestras rutas de fin de semana.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+
+    <h2>2. Añadimos la imagen desde CSS</h2>
+    <pre><code>.portada {
+    background-color: #183747;
+    background-image: url("imagenes/paisaje.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}</code></pre>
+    <ul>
+        <li><code>background-image</code>: indica la ruta de la imagen con <code>url(...)</code>. Aquí la ruta parte del HTML porque el CSS está dentro de él. En un archivo CSS separado, partiría de ese archivo.</li>
+        <li><code>background-size: cover</code>: cubre todo el contenedor conservando las proporciones; puede recortar parte de la imagen.</li>
+        <li><code>background-position: center</code>: centra la imagen dentro del contenedor.</li>
+        <li><code>background-repeat: no-repeat</code>: evita que la imagen se repita como un mosaico.</li>
+        <li><code>background-color</code>: mantiene un fondo oscuro si la imagen no carga.</li>
+        <li><code>color</code> y <code>text-align</code>: hacen que el texto sea blanco y esté centrado horizontalmente.</li>
+        <li><code>padding: 80px 20px</code>: deja 80 píxeles por arriba y abajo y 20 a cada lado. El contenido y este espacio dan altura al contenedor.</li>
+    </ul>
+    <p>No necesitamos fijar una altura ni usar flex: el título y el párrafo se colocan uno debajo del otro de forma natural.</p>
+
+    <h2>3. Probamos un cambio cada vez</h2>
+    <ol>
+        <li>Abre el ejemplo en el navegador y su código en el editor.</li>
+        <li>Cambia el padding de 80px a 40px. Guarda y observa la altura.</li>
+        <li>Cambia <code>center</code> por <code>left</code> en <code>text-align</code>.</li>
+        <li>Desactiva <code>background-size: cover</code> para observar la imagen con su tamaño original. Después desactiva <code>background-repeat: no-repeat</code> y ensancha la ventana para ver cómo se repite cuando queda espacio.</li>
+    </ol>
+    <p>La imagen de fondo es decorativa y no ocupa espacio propio. Si la imagen comunica información necesaria para comprender la página, utiliza <code>&lt;img&gt;</code> con un texto alternativo adecuado.</p>
+    <p><a href="presentacion-css.html">Volver a la presentación de CSS</a></p>
+</body>
+</html>
