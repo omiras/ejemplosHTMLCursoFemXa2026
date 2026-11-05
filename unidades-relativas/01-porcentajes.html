@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Porcentajes: el ancho depende del contenedor</title>
+    <style>
+.contenedor {
+    width: 100%;
+    background-color: #e4e9ef;
+    margin-bottom: 20px;
+}
+.estrecho {
+    width: 60%;
+}
+.barra {
+    width: 80%;
+    background-color: #245b87;
+    color: white;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 16px; color: #24343d;">
+    <header style="margin-bottom: 24px;">
+        <a href="index.html">Índice de ejemplos</a>
+        <h1>1. Porcentajes: el ancho depende del contenedor</h1>
+    </header>
+    <h2>Resultado</h2>
+<div class="contenedor">
+    <div class="barra">80% del contenedor grande</div>
+</div>
+<div class="contenedor estrecho">
+    <div class="barra">80% del contenedor pequeño</div>
+</div>
+    <section style="margin-top: 32px;">
+        <h2>Qué estamos viendo</h2>
+        <p>Las dos barras tienen <code>width: 80%</code>, pero sus padres tienen anchos distintos. Si un padre mide 500px, su barra mide 400px; si mide 300px, la barra mide 240px. El porcentaje se calcula respecto al ancho del contenido del contenedor, no siempre respecto a la ventana.</p><p>En este ejemplo las barras no tienen padding ni borde, así que el cálculo se ve directamente.</p>
+        <h2>CSS del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>.contenedor {
+    width: 100%;
+    background-color: #e4e9ef;
+    margin-bottom: 20px;
+}
+.estrecho {
+    width: 60%;
+}
+.barra {
+    width: 80%;
+    background-color: #245b87;
+    color: white;
+}</code></pre>
+        <h2>HTML del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>&lt;div class=&quot;contenedor&quot;&gt;
+    &lt;div class=&quot;barra&quot;&gt;80% del contenedor grande&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;contenedor estrecho&quot;&gt;
+    &lt;div class=&quot;barra&quot;&gt;80% del contenedor peque&#241;o&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h2>Un cambio para probar</h2>
+        <p>Cambia el 80% de .barra por 50%. Después reduce la ventana: ambas barras siguen ocupando la mitad de su propio contenedor.</p>
+        <p>Guarda, recarga e inspecciona la caja. El código que estudiamos está en el bloque style; las explicaciones usan estilos en línea.</p>
+    </section>
+</body>
+</html>
