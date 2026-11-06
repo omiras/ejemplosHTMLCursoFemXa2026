@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Diario Local · Ejemplo Flexbox</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 32px;
+            background-color: #f6f3ec;
+            color: #252525;
+            font-family: Georgia, serif;
+        }
+
+        header {
+            border-bottom: 3px solid #252525;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 52px;
+        }
+
+        /*
+            MENÚ: los enlaces conservan el ancho de su contenido.
+
+            justify-content reparte el espacio libre horizontal.
+            Prueba: flex-start, center, space-between y space-evenly.
+
+            align-items coloca los enlaces en el eje vertical.
+            Prueba: flex-start, center y flex-end.
+
+            gap establece una separación mínima entre enlaces.
+            Con space-between, la separación final puede ser mayor.
+        */
+        nav {
+            /* display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px; */
+            padding: 12px;
+            border: 1px dashed #999999;
+            font-family: Arial, sans-serif;
+        }
+
+        nav a {
+            padding: 12px;
+            border: 1px solid #252525;
+            color: #252525;
+            text-decoration: none;
+        }
+
+        .portada {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        main {
+            margin-top: 32px;
+        }
+
+        /*
+            NOTICIAS: estrecha y ensancha la ventana del navegador.
+
+
+            align-items: flex-start conserva las distintas alturas.
+            Prueba center y stretch para comparar el resultado.
+
+            Aquí justify-content apenas se apreciaría:
+            flex-grow ya consume el espacio horizontal sobrante.
+        */
+        .noticias {
+            /* display: flex;
+            align-items: flex-start;
+            gap: 24px; */
+        }
+
+        article {
+            padding: 20px;
+            border: 1px solid #999999;
+            background-color: #ffffff;
+        }
+
+        h3 {
+            margin-top: 0;
+            font-size: 26px;
+        }
+
+        article p {
+            line-height: 1.6;
+        }
+
+        .categoria {
+            color: #8a3028;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid #999999;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>El Diario Local</h1>
+        <p>Las noticias de cerca · Edición de la mañana</p>
+    </header>
+
+    <nav>
+        <a class="portada" href="#">Portada</a>
+        <a href="#actualidad">Actualidad</a>
+        <a href="#deportes">Deportes</a>
+        <a href="#cultura">Cultura</a>
+    </nav>
+
+    <main>
+        <h2>Hoy en nuestra ciudad</h2>
+
+        <section class="noticias">
+            <article class="principal" id="actualidad">
+                <p class="categoria">Actualidad</p>
+                <h3>La biblioteca abre sus puertas al barrio</h3>
+                <p>La nueva biblioteca municipal ya está lista para recibir a sus primeros visitantes. El edificio cuenta con salas de lectura, una zona infantil y espacios para estudiar.</p>
+                <p>Durante la primera semana se organizarán visitas guiadas y encuentros con escritores. El acceso a todas las actividades será gratuito.</p>
+                <p>Los vecinos podrán solicitar el carné de préstamo desde el próximo lunes.</p>
+            </article>
+
+            <article id="deportes">
+                <p class="categoria">Deportes</p>
+                <h3>Una carrera para todos</h3>
+                <p>El domingo se celebra la carrera popular. Habrá un recorrido corto para familias y otro de diez kilómetros.</p>
+            </article>
+
+            <article id="cultura">
+                <p class="categoria">Cultura</p>
+                <h3>El cine vuelve a la plaza</h3>
+                <p>La plaza acogerá tres proyecciones al aire libre durante este fin de semana.</p>
+                <p>Las sesiones comenzarán a las nueve de la noche. El público podrá llevar su propia silla.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>El Diario Local · Periódico ficticio para practicar HTML y CSS.</p>
+    </footer>
+</body>
+</html>
+
