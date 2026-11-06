@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Border-box: incluir padding y borde en el ancho</title>
+    <style>
+.marco {
+    width: 100%;
+    background-color: #e4e9ef;
+    margin-bottom: 24px;
+}
+.caja {
+    width: 100%;
+    padding: 20px;
+    border: 5px solid #245b87;
+    background-color: #eaf3fa;
+}
+.content-box {
+    box-sizing: content-box;
+}
+.border-box {
+    box-sizing: border-box;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 16px; color: #24343d;">
+    <header style="margin-bottom: 24px;">
+        <a href="index.html">Índice de ejemplos</a>
+        <h1>4. Border-box: incluir padding y borde en el ancho</h1>
+    </header>
+    <h2>Resultado</h2>
+<h3>Content-box: la caja sobresale del marco gris</h3>
+<div class="marco">
+    <div class="caja content-box">100% + padding + borde</div>
+</div>
+<h3>Border-box: todo cabe dentro del marco</h3>
+<div class="marco">
+    <div class="caja border-box">El 100% incluye padding y borde</div>
+</div>
+    <section style="margin-top: 32px;">
+        <h2>Qué estamos viendo</h2>
+        <p>Con un marco de 300px, <code>content-box</code> da 300px al contenido y añade 40px de padding y 10px de borde: la caja exterior mide 350px. Con <code>border-box</code>, el exterior mide 300px y quedan 250px para el contenido.</p><p>El margin queda fuera en ambos casos. La primera caja desborda a propósito para mostrar el problema: no lo ocultamos con overflow.</p>
+        <h2>CSS del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>.marco {
+    width: 100%;
+    background-color: #e4e9ef;
+    margin-bottom: 24px;
+}
+.caja {
+    width: 100%;
+    padding: 20px;
+    border: 5px solid #245b87;
+    background-color: #eaf3fa;
+}
+.content-box {
+    box-sizing: content-box;
+}
+.border-box {
+    box-sizing: border-box;
+}</code></pre>
+        <h2>HTML del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>&lt;h3&gt;Content-box: la caja sobresale del marco gris&lt;/h3&gt;
+&lt;div class=&quot;marco&quot;&gt;
+    &lt;div class=&quot;caja content-box&quot;&gt;100% + padding + borde&lt;/div&gt;
+&lt;/div&gt;
+&lt;h3&gt;Border-box: todo cabe dentro del marco&lt;/h3&gt;
+&lt;div class=&quot;marco&quot;&gt;
+    &lt;div class=&quot;caja border-box&quot;&gt;El 100% incluye padding y borde&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        <h2>Un cambio para probar</h2>
+        <p>Inspecciona ambas cajas y compara el modelo de caja. Cambia .content-box a box-sizing: border-box para eliminar el desbordamiento. Prueba después con la ventana estrecha.</p>
+        <p>Guarda, recarga e inspecciona la caja. El código que estudiamos está en el bloque style; las explicaciones usan estilos en línea.</p>
+    </section>
+</body>
+</html>

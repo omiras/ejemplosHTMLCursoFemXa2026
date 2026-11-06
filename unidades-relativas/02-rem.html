@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Rem: la referencia es html</title>
+    <style>
+html {
+    font-size: 16px;
+}
+.tarjeta-rem {
+    font-size: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #eef7f1;
+}
+.tarjeta-rem h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+.tarjeta-px {
+    font-size: 16px;
+    padding: 16px;
+    background-color: #fff3de;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 16px; color: #24343d;">
+    <header style="margin-bottom: 24px;">
+        <a href="index.html">Índice de ejemplos</a>
+        <h1>2. Rem: la referencia es html</h1>
+    </header>
+    <h2>Resultado</h2>
+<div class="tarjeta-rem">
+    <h2>Texto en rem</h2>
+    <p>Mi texto mide 1rem y mi espacio interior también.</p>
+</div>
+<div class="tarjeta-px">
+    <p>Mi texto y mi espacio interior están fijados en 16px.</p>
+</div>
+    <section style="margin-top: 32px;">
+        <h2>Qué estamos viendo</h2>
+        <p>Con <code>html { font-size: 16px; }</code>, 1rem equivale a 16px y 2rem a 32px. Si html pasa a 20px, equivalen a 20px y 40px. La tarjeta con valores en píxeles mantiene sus tamaños declarados.</p><p>Rem depende de html, aunque el elemento padre tenga otro tamaño de letra. También sirve para padding y margin. Aquí fijamos 16px para facilitar las cuentas; sin esa regla se utiliza el tamaño raíz configurado en el navegador.</p>
+        <h2>CSS del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>html {
+    font-size: 16px;
+}
+.tarjeta-rem {
+    font-size: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #eef7f1;
+}
+.tarjeta-rem h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+.tarjeta-px {
+    font-size: 16px;
+    padding: 16px;
+    background-color: #fff3de;
+}</code></pre>
+        <h2>HTML del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>&lt;div class=&quot;tarjeta-rem&quot;&gt;
+    &lt;h2&gt;Texto en rem&lt;/h2&gt;
+    &lt;p&gt;Mi texto mide 1rem y mi espacio interior tambi&#233;n.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tarjeta-px&quot;&gt;
+    &lt;p&gt;Mi texto y mi espacio interior est&#225;n fijados en 16px.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        <h2>Un cambio para probar</h2>
+        <p>Cambia solo font-size de html a 20px. Compara el título, el texto y el padding. Después añade font-size: 30px a .tarjeta-rem: el título de 2rem seguirá tomando como referencia html.</p>
+        <p>Guarda, recarga e inspecciona la caja. El código que estudiamos está en el bloque style; las explicaciones usan estilos en línea.</p>
+    </section>
+</body>
+</html>

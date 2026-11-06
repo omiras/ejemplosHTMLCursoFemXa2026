@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. Aplicación: una receta adaptable</title>
+    <style>
+html {
+    font-size: 16px;
+}
+.receta {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 2px solid #d7c6ac;
+    background-color: #fff8ed;
+    font-size: 1rem;
+}
+.receta h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+.receta h3 {
+    font-size: 1.25rem;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 16px; color: #24343d;">
+    <header style="margin-bottom: 24px;">
+        <a href="index.html">Índice de ejemplos</a>
+        <h1>5. Aplicación: una receta adaptable</h1>
+    </header>
+    <h2>Resultado</h2>
+<article class="receta">
+    <h2>Tostada de tomate</h2>
+    <p>Una receta sencilla para empezar el día.</p>
+    <h3>Ingredientes</h3>
+    <ul>
+        <li>Una rebanada de pan</li>
+        <li>Un tomate maduro</li>
+        <li>Aceite de oliva</li>
+    </ul>
+    <h3>Preparación</h3>
+    <ol>
+        <li>Tuesta el pan.</li>
+        <li>Ralla el tomate y repártelo sobre la tostada.</li>
+        <li>Añade un chorrito de aceite de oliva.</li>
+    </ol>
+</article>
+    <section style="margin-top: 32px;">
+        <h2>Qué estamos viendo</h2>
+        <p>Combinamos las cuatro ideas: 90% para adaptar el ancho, 640px como límite, rem para texto y espacios, y border-box para incluir padding y borde dentro del ancho. No hay altura fija: la receta crece con el contenido.</p>
+        <h2>CSS del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>html {
+    font-size: 16px;
+}
+.receta {
+    box-sizing: border-box;
+    width: 90%;
+    max-width: 640px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    border: 2px solid #d7c6ac;
+    background-color: #fff8ed;
+    font-size: 1rem;
+}
+.receta h2 {
+    font-size: 2rem;
+    margin: 0 0 1rem;
+}
+.receta h3 {
+    font-size: 1.25rem;
+}</code></pre>
+        <h2>HTML del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>&lt;article class=&quot;receta&quot;&gt;
+    &lt;h2&gt;Tostada de tomate&lt;/h2&gt;
+    &lt;p&gt;Una receta sencilla para empezar el d&#237;a.&lt;/p&gt;
+    &lt;h3&gt;Ingredientes&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Una rebanada de pan&lt;/li&gt;
+        &lt;li&gt;Un tomate maduro&lt;/li&gt;
+        &lt;li&gt;Aceite de oliva&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h3&gt;Preparaci&#243;n&lt;/h3&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Tuesta el pan.&lt;/li&gt;
+        &lt;li&gt;Ralla el tomate y rep&#225;rtelo sobre la tostada.&lt;/li&gt;
+        &lt;li&gt;A&#241;ade un chorrito de aceite de oliva.&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/article&gt;</code></pre>
+        <h2>Un cambio para probar</h2>
+        <p>Reduce la ventana hasta unos 320px y comprueba que la receta cabe. Cambia html a 20px: aumentarán el texto y los espacios en rem, mientras el límite de 640px seguirá igual.</p>
+        <p>Guarda, recarga e inspecciona la caja. El código que estudiamos está en el bloque style; las explicaciones usan estilos en línea.</p>
+    </section>
+</body>
+</html>

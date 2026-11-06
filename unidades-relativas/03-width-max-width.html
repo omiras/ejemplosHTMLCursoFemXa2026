@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Width y max-width: una caja adaptable</title>
+    <style>
+.caja {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #eef4fa;
+}
+    </style>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 16px; color: #24343d;">
+    <header style="margin-bottom: 24px;">
+        <a href="index.html">Índice de ejemplos</a>
+        <h1>3. Width y max-width: una caja adaptable</h1>
+    </header>
+    <h2>Resultado</h2>
+<div class="caja">
+    <h2>Una lectura cómoda</h2>
+    <p>Esta caja ocupa el 90% del espacio disponible, pero nunca supera los 600 píxeles de ancho.</p>
+</div>
+    <section style="margin-top: 32px;">
+        <h2>Qué estamos viendo</h2>
+        <p><code>width: 90%</code> hace que la caja se adapte al contenedor. <code>max-width: 600px</code> impone un límite. Con un contenedor de 1000px, el 90% sería 900px, pero el resultado se limita a 600px. Con uno de 400px, la caja mide 360px.</p><p><code>margin: 0 auto</code> reparte por igual el espacio horizontal sobrante y centra la caja. max-width es una propiedad, no una unidad. Todavía no hemos añadido padding ni borde.</p>
+        <h2>CSS del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>.caja {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #eef4fa;
+}</code></pre>
+        <h2>HTML del ejemplo</h2>
+        <pre style="background: #eef4fa; padding: 16px; overflow-x: auto;"><code>&lt;div class=&quot;caja&quot;&gt;
+    &lt;h2&gt;Una lectura c&#243;moda&lt;/h2&gt;
+    &lt;p&gt;Esta caja ocupa el 90% del espacio disponible, pero nunca supera los 600 p&#237;xeles de ancho.&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+        <h2>Un cambio para probar</h2>
+        <p>Prueba con una ventana ancha y luego estrecha. Desactiva max-width en el inspector y observa cómo la caja vuelve a ocupar siempre el 90%.</p>
+        <p>Guarda, recarga e inspecciona la caja. El código que estudiamos está en el bloque style; las explicaciones usan estilos en línea.</p>
+    </section>
+</body>
+</html>
