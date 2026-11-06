@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroPlay · Tienda de videojuegos</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background-color: #f3f4f8;
+            color: #202436;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            padding: 24px;
+            background-color: #252342;
+            color: white;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /*
+            PASO 1: estrecha la ventana y observa las tarjetas en columna.
+            PASO 2: ensancha la ventana. Los artículos siguen en columna.
+            PASO 3: activa display: flex. Las tarjetas intentan compartir una fila.
+            PASO 4: activa flex-wrap: wrap para que se creen nuevas filas.
+        */
+        section {
+            /* display: flex; */
+            /* flex-wrap: wrap; */
+        }
+
+        article {
+            width: 240px;
+            margin: 0 24px 24px 0;
+            padding: 19px;
+            border: 1px solid #d7dae5;
+            border-radius: 12px;
+            background-color: white;
+        }
+
+        img {
+            width: 200px;
+            height: 160px;
+            object-fit: contain;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+        .plataforma {
+            color: #62677a;
+        }
+
+        .precio {
+            color: #4935a3;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        a {
+            color: #4935a3;
+        }
+
+        footer {
+            padding: 24px;
+            color: #62677a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🎮 RetroPlay</h1>
+        <p>Grandes aventuras que nunca pasan de moda.</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>Nuestros clásicos</h2>
+
+            <article>
+                <img src="https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg"
+                    alt="Carátula de The Legend of Zelda: Ocarina of Time">
+                <h3>The Legend of Zelda: Ocarina of Time</h3>
+                <p class="plataforma">Nintendo 64</p>
+                <p class="precio">39,90 €</p>
+                <a href="https://en.wikipedia.org/wiki/The_Legend_of_Zelda:_Ocarina_of_Time" target="_blank">Conocer el
+                    juego</a>
+            </article>
+
+            <article>
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/e9/Super_Mario_64.png"
+                    alt="Carátula de Super Mario 64">
+                <h3>Super Mario 64</h3>
+                <p class="plataforma">Nintendo 64</p>
+                <p class="precio">29,90 €</p>
+                <a href="https://en.wikipedia.org/wiki/Super_Mario_64" target="_blank">Conocer el juego</a>
+            </article>
+
+            <article>
+                <img src="https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg"
+                    alt="Carátula de Final Fantasy VII">
+                <h3>Final Fantasy VII</h3>
+                <p class="plataforma">PlayStation</p>
+                <p class="precio">34,90 €</p>
+                <a href="https://en.wikipedia.org/wiki/Final_Fantasy_VII" target="_blank">Conocer el juego</a>
+            </article>
+
+            <article>
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/MetroidPrimebox.jpg"
+                    alt="Carátula de Metroid Prime">
+                <h3>Metroid Prime</h3>
+                <p class="plataforma">Nintendo GameCube</p>
+                <p class="precio">24,90 €</p>
+                <a href="https://en.wikipedia.org/wiki/Metroid_Prime" target="_blank">Conocer el juego</a>
+            </article>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>Tienda de demostración. Precios ficticios.</p>
+        <p>Carátulas enlazadas desde Wikipedia. Requieren conexión a Internet.</p>
+    </footer>
+</body>
+
+</html>
