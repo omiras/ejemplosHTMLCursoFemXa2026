@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Todo lo que yo escriba dentro de estas etiqutas script, se va a ejecutar como un programa-->
+    <!-- Imagina que quieres viajar de Barcelona a Madrid, para el día 17 de diciembre de 2026, y que el precio del billete es de 100€ -->
+    <script>
+        /* ESTO ES UN COMENTARIO */
+
+        /* Declarar una variable para almacenar el valor de la ciudad de origen*/
+        /** 
+         * let: Palabra reservada. Las palabras reservadas son palabras que se usan para un próposito específico en programación. En este caso, let permite declarar una variable nueva
+         * origen: el nombre de la variable. Puedes poner cualquier palabra, PERO en programación siempre tenemos que escribir una palabra que tenga que ver con el valor que contiene
+         * = : Operador de asignación. Dice lo siguiente: la variable origen toma por valor "Barcelona"
+         * ; -> el punto y coma marca el final de una instrucción de programación en JavaScript
+         * */ 
+
+        let origen = "Barcelona"; // Es una variable de tipo cadena de texto, más comunmente conocido en programaciómo como string. LAs comillas marcan que Barcelona es un valor string
+        let destino = "Sevilla";
+
+        let precio = 200; // Los valores que son números se ponen SIN COMILLAS. En programación a este tipo de valores se les llama number
+        let descuento = 50; // El descuento es de 10 euros
+
+        /* Como programadoras una de las tareas que necesitamos muy a menudo es mostrar el valor de una variable. */
+        /* Para consultar el valor de una variable usamos una instrucción que ya está prearada para nosotros. Esa instrucción se llama console.log */
+
+        /* Me gustaría conocer el valor de la variable origen*/
+        
+        // Voy a declarar una variable para mostrar un mensaje de confirmación con la compra del billete entre las dos ciudades.
+        
+        
+
+        let mensaje = "Has elegido un billete con ciudad de origen " + origen + ". La ciudad de destino es: " + destino;
+        
+        console.log(mensaje);
+
+        // Mostrar el precio del billete por la consola
+        console.log(precio);
+
+        // Aplicar un descuento al precio y lo vamos a mostrar por consola
+        let precioDescuento = precio - descuento;
+        console.log("Precio del billete tras aplicar el descuento: ", precioDescuento);
+
+        </script>
+</body>
+</html>
