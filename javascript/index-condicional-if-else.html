@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Queremos comprar una entrada para el teatro. 
+         * - La entrada general son 10 euros
+         * - Los menores de 14 años NO PAGAN
+         * - Los mayores de 65 años pagan 5 euros
+         */
+
+        let edad = 70;
+        let precio; // Lo voy a declarar, pero NO le asigno valor. Lo voy a calcular en función de la edad de la persona
+
+        if (edad < 14) {
+            precio = 0; // los niños no pagan
+        } else if (edad <= 65) {
+            precio = 10; // precio general
+        } else {
+            precio = 5; // los mayores de 65 años pagan solamente 5 euros
+        }
+
+        console.log(precio);
+
+    </script>
+</body>
+</html>
