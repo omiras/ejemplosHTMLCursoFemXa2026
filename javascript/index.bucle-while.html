@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /**
+         *  for (let i = 0; i < 10; i++) {
+    
+                console.log("El valor de la variable de iteración es " + i);
+            }
+    
+            console.log("He acabado.");
+         */
+
+        // Hay bucle que se ejecutan mientras se cumple ciertas condiciones. 
+
+        // Bucle While
+
+        // Variable de iteración
+        let i = 0;
+
+        // DEntro de los parentesis tienes que poner la condición que se debe cumplir para ejecutar lo que hay dentro de las llaves
+        while (i < 10) {
+            console.log("El valor de la variable de iteración en el bucle while es " + i);
+
+            // Incrementar la variable de iteración manualmente
+            i = i + 1; // i++;
+        }
+
+        // En el parchis para salir de casilla de salida tienes que sacar 5
+        console.log("---EMPIEZA EL JUEGO----");
+
+        let dado = 1; // Sacas un 1
+
+        while (dado != 5) { // Mientras el valor del dado sea diferente de 5...ejecuta el bucle
+            console.log("Sigues en la casilla de salida.");
+            console.log("Tira el dado de nuevo");
+
+            // Nos creemos qu esta línea de código genera un número aleatorio entre 1 y 6
+            dado = Math.floor(Math.random() * 6) + 1; // 1, 2, 3, 4, 5, 6
+
+            // Muestra el valor del dado por consola
+            console.log("Has sacado un: ", dado);
+        }
+
+        console.log("Ya has salido de la casilla de salida.");
+
+
+    </script>
+</body>
+
+</html>
