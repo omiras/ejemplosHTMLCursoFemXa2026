@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // El valor que tu le pongas entre parenetesis, te lo muestra por la consola del navegador
+        let random = Math.random();
+        //console.log(random);
+
+        // Imagina que quremos saludar 10 veces a una persona. Saludame a la persona en inglés
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+        // console.log("How are you doing?");
+
+        // DECLARAR una función. Saludame a la persona en inglés
+        function saludar() {
+            // Tu función se escribe dentro de las llaves
+            console.log("How are you doing?");    
+            console.log("How are you feeling today?");
+        }
+        
+        saludar(); // () -> operador para EJECUTAR la función
+        saludar();
+        saludar();
+
+        // Crear una función que permite saludar a una persona
+        // Esta función tiene un parámetro de nombre "nombre"
+        // Puedes tener más de un parámetro si lo separas por una ,
+        function saludarPersona(nombre, apellido) {
+            console.log("Hola " + nombre + " " + apellido);
+        }
+
+        // Le pasamos un valor a la función saludarPersona
+        saludarPersona("Roberto", "Gil");
+        saludarPersona("Monica", "Sanchez");
+        saludarPersona("Selma", "Bouvier");
+
+    </script>
+</body>
+
+</html>
