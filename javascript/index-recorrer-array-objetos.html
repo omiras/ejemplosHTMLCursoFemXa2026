@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const cestaAmazon = [
+            {
+                nombre: "zapatos",
+                cantidad: 1,
+                precioUnitario: 63.88
+            },
+            {
+                nombre : "crema belleza",
+                cantidad: 3,
+                precioUnitario: 15.96
+            },
+            {
+                nombre: "portátil",
+                cantidad: 1,
+                precioUnitario: 273.81
+            }
+        ];
+
+        // total compra
+        let totalCompra = 0;
+
+        // Recorrer el array y mostrar el nombre de cada uno de los productos
+        for (let i=0; i < cestaAmazon.length; i++) {
+            // Mostrar solamente el nombre de cada uno de los artículos
+            console.log(cestaAmazon[i].nombre);
+
+            // para cada elemento de la cesta, debo multiplicar la cantidad de ese producto por su precio unitario
+            totalCompra = totalCompra + cestaAmazon[i].precioUnitario * cestaAmazon[i].cantidad;
+
+        }
+
+        console.log("Precio total de la compra: ", totalCompra);
+
+    </script>
+</body>
+</html>
