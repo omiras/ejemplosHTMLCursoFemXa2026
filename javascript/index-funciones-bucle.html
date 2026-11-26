@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function contar(limite) {
+            for (let i = 1; i <= limite; i++) {
+                console.log(i);
+            }
+        }
+
+        // Que si yo le paso un número, me va a contar des de 1 hasta 100
+        // contar(5);
+
+        function esMayorDeEdad(edad) {
+            return edad >= 18; // true, false
+        }
+
+        if (esMayorDeEdad(15)) {
+            console.log("Puede entrar");
+        } else {
+            console.log("Todavía no puede entrar");
+        }
+    </script>
+</body>
+
+</html>
