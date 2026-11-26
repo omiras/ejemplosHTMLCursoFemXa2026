@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+ * Representar en un objeto una rerva de Booking (5 o 6 conceptos)
+ * 
+ * - Fecha entrada
+ * - Fecha salida
+ * - Ciudad destino
+ * - Nombre alojamiento
+ * - numero personas (discrimina entre adultos y niños)
+ * - numero habitaciones
+ * - precio
+ * - ¿Vaiajas con mascotas?
+ * 
+ * Voy a ir a sevilla, el 6 de diciembre , y me vuelto el 14, el nombre de mi apartamento se llama "Villa Sol", el precio total es 440€, no voy con mascotas, somos 2 adultos sin niños
+ * 
+ */
+        const reserva = {
+            ciudad: "Sevilla",
+            fechaInicio: "06-12-2026",
+            fechaFin: "14-12-2026",
+            nombre: "Apartamentos Villa Sol",
+            precio: 440,
+            mascotas: false,
+            ocupantes: {
+                adultos: 2,
+                niños: 0
+            },
+            servicios: {
+                wifi: true,
+                cocina: true,
+                gimnasio: false,
+                parking: false
+            }
+            
+        }
+
+    // Nos gustaría guardar también todos los servicios del apartamento. Tiene wifi, lavadora, cocina y aire acondicionado.NO TIENE calefaccion, NO TIENE parking, NO TIENE check in temprano. NO TIENE gimnasio.
+    
+    // ¿Accedo al número de ocupantes adultos?
+    console.log("Ocupantes adultos:", reserva.ocupantes.adultos); 
+    
+    // ¿Tiene wifi?
+    if (reserva.servicios.wifi) {
+        console.log("Mostrar el icono del wifi en la seccion de servicios del apartamento");
+    }
+
+    // Imagina que has conseguido un descuento para el apartemento y debemos actualizar su precio con un 10% descuento
+    reserva.precio = reserva.precio * 0.9;
+    console.log("Precio tras aplicar el desuento: ", reserva.precio);
+
+    </script>
+</body>
+
+</html>

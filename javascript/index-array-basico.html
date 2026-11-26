@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+  * Nos piden implementar un programa que nos permita almacenar las retiradas de dinero e ingresos de tu cuenta bancaria
+  */
+
+     const saldo = 65000;
+     const retirada1 = 20;
+     const ingreso1 = 1500;
+     const retirada2 = 45;
+     const retirada3 = 30;
+
+     // Nuestro programa debería ser capaz de calcular el saldo total 
+     let saldoTotal = saldo - retirada1 + ingreso1 - retirada2 - retirada3;
+     console.log("Mi saldo final es: ", saldoTotal);
+
+    // Solución: cuando tienes muchos datos relacionados entre sí, es adecuado almacenarlos en una estructura que los contenga a todos, y puedas operar con ellos. A dicha estructura en programación, se le llama array (o arreglo).
+
+    // [] -> corchetes
+    const movimientosBancarios = [65000, -20, 1500, -45, -30, -15];
+
+    // Mostrar todos los elementos del array
+    console.log(movimientosBancarios);
+
+    // Mostrar el número de elementos que tiene un array con la propiedad .length
+    console.log(movimientosBancarios.length)
+
+    // Los arrays, al igual que los strings, son un tipo de dato ITERABLE. Podemos usar sus índices para acceder a cada uno de sus elementos
+
+    // ¿Cuál era el primer movimiento bancario de mi cuenta?
+    console.log(movimientosBancarios[0]);
+
+    </script>
+</body>
+
+</html>

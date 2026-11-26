@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const movimientosBancarios = [65000, -20, 1500, -45, -30, -15];
+
+        // ¿Cual es el saldo final de mi cuenta?
+
+        // Definir una variable para acumular el saldo total de mi cuenta
+        let saldoTotal = 0; // valor neutro
+
+        for (let i = 0; i < movimientosBancarios.length; i++) {
+            console.log(movimientosBancarios[i]);
+
+            saldoTotal = saldoTotal + movimientosBancarios[i];
+        }
+
+        console.log("El saldo total de mi cuenta es: ", saldoTotal);
+
+        /** Contar ovejas */
+
+        const animales = ["🐶", "🐑", "🐱", "🐑"];
+        let contadorOvejas = 0;
+
+        for (let i = 0; i < animales.length; i++) {
+            if (animales[i] == "🐑") {
+                contadorOvejas++; // contadorOvejas = contadorOvejas + 1;
+            }
+        }
+
+        console.log("Hay " + contadorOvejas + " ovejas");
+
+    </script>
+</body>
+
+</html>

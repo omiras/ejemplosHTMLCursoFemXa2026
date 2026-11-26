@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    const patas = 4;
+    const foto = "https://i.etsystatic.com/40231898/r/il/d4240b/8033700646/il_794xN.8033700646_rugz.jpg";
+    const rasgos = ["Bigotes", "Pelaje"];
+
+    /* Caracol */
+    const patasCaracol = 0;
+    const fotoCaracol = "https://imagen-caracol.jpg";
+    const ragosCaracol = ["Baba", "Capaerazón"];
+
+    /* Crear un objeto, que represente un animal */
+    const pato = {
+        patas: 2,
+        rasgos: ["Pico", "Plumaje", "Vuela"]
+    };
+
+    const abeja = {
+        patas: 6,
+        rasgos: ["Miel", "Colmena", "Social"]
+    };
+
+    console.log(pato);
+    console.log(abeja);
+
+    // Operacines típicas sobre objetos. Consultar sus propiedades
+
+    // Quiero mosgtrar el número de patas del pato
+    console.log(pato.patas);
+
+    // Dime todas las patas que tienen estos animales
+    const totalPatas = pato.patas + abeja.patas;
+    console.log("Patas totales: ", totalPatas);
+
+    </script>
+</body>
+</html>
