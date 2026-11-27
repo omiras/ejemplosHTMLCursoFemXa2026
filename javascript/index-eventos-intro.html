@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elige el color de tu camiseta</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f1ec;
+            color: #292929;
+        }
+
+        .tienda {
+            width: 90%;
+            max-width: 560px;
+            padding: 35px;
+            text-align: center;
+            background-color: white;
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 2rem;
+        }
+
+        .subtitulo {
+            margin-top: 0;
+            color: #777;
+        }
+
+        /* La camiseta se dibuja únicamente con HTML y CSS. */
+        .camiseta {
+            position: relative;
+            width: 190px;
+            height: 210px;
+            margin: 55px auto 25px;
+            background-color: #dddddd;
+            border-radius: 18px 18px 28px 28px;
+            transition: background-color 0.3s ease;
+        }
+
+        .camiseta::before,
+        .camiseta::after {
+            content: "";
+            position: absolute;
+            top: 8px;
+            width: 75px;
+            height: 85px;
+            background-color: inherit;
+        }
+
+        .camiseta::before {
+            left: -50px;
+            transform: rotate(28deg);
+            border-radius: 18px 4px 14px 14px;
+        }
+
+        .camiseta::after {
+            right: -50px;
+            transform: rotate(-28deg);
+            border-radius: 4px 18px 14px 14px;
+        }
+
+        .cuello {
+            position: absolute;
+            z-index: 1;
+            top: -1px;
+            left: 50%;
+            width: 75px;
+            height: 38px;
+            transform: translateX(-50%);
+            background-color: white;
+            border-radius: 0 0 40px 40px;
+        }
+
+        #nombre-color {
+            min-height: 29px;
+            margin: 0 0 22px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .botones-color {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .boton-color {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 999px;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .boton-color:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #boton-azul {
+            background-color: #2878c8;
+        }
+
+        #boton-verde {
+            background-color: #2d995b;
+        }
+
+        #boton-rojo {
+            background-color: #d94848;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tienda">
+        <h1>Tu camiseta, tu estilo</h1>
+        <p class="subtitulo">Escoge el color que más te guste</p>
+
+        <!-- Elemento actualizable: cambiar su color de fondo desde JavaScript. -->
+        <div id="camiseta" class="camiseta">
+            <div class="cuello"></div>
+        </div>
+
+        <!-- Elemento actualizable: escribir aquí el nombre del color elegido. -->
+        <p id="nombre-color">Elige un color</p>
+
+        <p>Has elegido el color: <span id="color-elegido"></span></p>
+
+        <div class="botones-color">
+            <!-- Elementos interactuables: añadir los eventos desde JavaScript. -->
+            <button id="boton-azul" class="boton-color" type="button" onclick="escogerAzul()">Azul</button>
+            <button id="boton-verde" class="boton-color" type="button">Verde</button>
+            <button id="boton-rojo" class="boton-color" type="button">Rojo</button>
+        </div>
+    </main>
+
+    <script>
+        function escogerAzul() {
+            // Escribir que ha escogido el color azul
+            document.querySelector("#color-elegido").textContent = "azul";
+
+            // Pintar el fondo de la camiseta de color azul
+
+            document.querySelector("#camiseta").style.backgroundColor = "blue"; 
+
+            console.log("Has hecho click en el botón azul");
+
+        }
+
+        // Segunda manera de asociar un evento a un elemento HTML
+
+        // Recuperas el objeto del DOM (Document Object Model)
+        const botonVerde = document.querySelector("#boton-verde"); // botón verde
+        const camiseta = document.querySelector("#camiseta");
+        const colorTexto = document.querySelector("#color-elegido");
+
+        // Asociar el evento 'click' al botón verde. Forma número 2 de asociar un evento a un elemento , mediante la propiedad onclick
+        
+        botonVerde.onclick = escogerVerde;
+
+        function escogerVerde() {
+            colorTexto.textContent = "Verde";
+            camiseta.style.backgroundColor = "green";
+        }
+
+        // Forma 3 de asociar el evento 'click' a un elemento: utilizando el método addEventListener
+        const botonRojo = document.querySelector("#boton-rojo");
+
+        botonRojo.addEventListener("click", escogerRojo);
+
+        function escogerRojo() {
+            colorTexto.textContent = "Rojo";
+            camiseta.style.backgroundColor = "#FF0000";
+        }
+
+        
+
+    </script>
+</body>
+</html>
